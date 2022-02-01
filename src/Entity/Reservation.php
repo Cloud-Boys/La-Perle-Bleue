@@ -23,11 +23,6 @@ class Reservation
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $prenom;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $email;
@@ -83,19 +78,7 @@ class Reservation
 
         return $this;
     }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
+    
     public function getEmail(): ?string
     {
         return $this->email;
