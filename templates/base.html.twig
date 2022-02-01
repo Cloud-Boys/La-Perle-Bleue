@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{{ asset('css/framework.css') }}">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -14,6 +16,54 @@
         {% endblock %}
     </head>
     <body>
+        <!-- Début Header : barre de navigation et logo-->
+        <header>
+            <nav id="menu" class="side-spaced">
+                <div class="f-3">
+                    <a href="{{ path('accueil')}}"><img class="logo" src="{{ asset('img/logo.jpg') }}" alt="logo"></a>
+                </div>
+                <div id="menu-links">
+                    <a class="nav_link mr" href="{{ path('accueil')}}">Accueil</a>
+                    <a class="nav_link mr" href="menu.html">Menu</a>
+                    <a class="nav_link mr" target="_blank" href="https://www.ubereats.com/fr/store/la-perle-bleue/p2uKdKaZViePwyIxl6_CxQ?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjI1JTIwUnVlJTIwZGUlMjBQbG9ic2hlaW0lMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJDaElKdzAwWElCREpsa2NSR2NMbmphNzMtdWslMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyZ29vZ2xlX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBNDguNTY2NTA3OSUyQyUyMmxvbmdpdHVkZSUyMiUzQTcuNzY3NTg4JTdE&ps=1">UberEats</a>
+                    <a class="nav_link mr" href="contact.html">Contact</a>
+                </div>
+                <div id="burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </header>
+         <!-- Fin Header-->
         {% block body %}{% endblock %}
+        <!-- Debut Footer -->
+        <footer>
+            <div class="div_footer">
+                <div id="footer_first_div">
+                    <h2 class="ta-center">À propos de nous</h2>
+                    <p class="ta-center m-0">Perle Bleue restaurant familial depuis 1998 Ouvert du Mardi au Dimanche</p>
+                </div>
+                <div id="footer_snd_div">
+                    <h2 class="ta-center">Nos Contacts</h2>   
+                    <div class="fs-16">
+                        <p class="ta-center"><i class="fas fa-phone-alt mr cyan"></i>03 88 60 54 54</p>
+                    </div>
+                    <div class="fs-16">
+                        <p class="ta-center"><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel, 67400 Illkirch-Graffenstaden</p>
+                    </div>
+                    <div>
+                        <p class="ta-center"><i class="fas fa-envelope mr cyan"></i>laperlebleue@gmail.com</p>
+                    </div>
+                </div>
+                <div id="footer_trd_div">
+                    <h2 class="ta-center">Nos Réseaux</h2>
+                    <div class="fs-e2 ta-center" >
+                        <a href="https://www.facebook.com/la.perle.bleue.ilk/?ref=py_c" target="_blank"><i class="fab fa-facebook-f mr cyan"></i></a>
+                        <a href="https://www.instagram.com/la_perle_bleue_illkirch/?hl=fr" target="_blank"><i class="fab fa-instagram cyan"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Fin Footer -->
+        <script src="{{ asset('js/burger.js')}}"></script>
     </body>
 </html>
