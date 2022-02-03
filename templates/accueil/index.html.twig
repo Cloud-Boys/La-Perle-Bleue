@@ -4,235 +4,249 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock %}
 
 {% block body %}
 
-<main>
-        <!-- Début Section Accueil : image et texte-->
-        <section class="section_bg_img flex jc-center ai-center">
-            <div class="ta-center white">
-                <p class="police_italien shadow">Welcome</p>
-                <h1 id="main_titre" class="shadow">PERLE BLEUE depuis 1998</h1>
-            </div>
-        </section>
-        <!-- Fin Section Accueil-->
-     
-        <!-- Debut Section Reservation-->
-        <section class="section_reservation">
-            <div class="reservation_div">
-                <div class="reservation_flex">
-                    <div class="container_info">
-                        <div class="flex wrap white">  
-                            <div class="info f-1">
-                                <h3><i class="fas fa-phone-alt mr cyan"></i>03 88 60 54 54</h3>
-                            </div>
-                            <div class="info f-1">
-                                <h3><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel</h3>
-                                <p class="gray m-0">67400 Illkirch-Graffenstaden</p>
-                            </div>
-                            <div class="info f-1-5">
-                                <h3><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h3>
-                                <!--- 
-                                <table style="width:100%" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                      <th>Mardi Jeudi</th>
-                                      <td>10h - 14h30 <br> 18h - 22h</td>
-                                    </tr>
-                                    <tr>
-                                      <th>Vendredi</th>
-                                      <td>10h - 14h30 <br> 18h - 23h</td>
-                                    </tr>
-                                    <tr>
-                                      <th>Samedi</th>
-                                      <td>10h30 - 23h30</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Dimanche</th>
-                                        <td>10h30 - 22h30</td>
-                                      </tr>
-                                  </table>-->
+    <main>
+            <!-- Début Section Accueil : image et texte-->
+            <section class="section_bg_img flex jc-center ai-center">
+                <div class="ta-center white">
+                    <p class="police_italien shadow">Welcome</p>
+                    <h1 id="main_titre" class="shadow">PERLE BLEUE depuis 1998</h1>
+                </div>
+            </section>
+            <!-- Fin Section Accueil-->
+        
+            <!-- Debut Section Reservation-->
+            <section class="section_reservation">
+                <div class="reservation_div">
+                    <div class="reservation_flex">
+                        <div class="container_info">
+                            <div class="flex wrap white">  
+                                <div class="info f-1">
+                                    <h3><i class="fas fa-phone-alt mr cyan"></i>03 88 60 54 54</h3>
+                                </div>
+                                <div class="info f-1">
+                                    <h3><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel</h3>
+                                    <p class="gray m-0">67400 Illkirch-Graffenstaden</p>
+                                </div>
+                                <div class="info f-1-5">
+                                    <h3><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h3>
+                                    <!--- 
+                                    <table style="width:100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                        <th>Mardi Jeudi</th>
+                                        <td>10h - 14h30 <br> 18h - 22h</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Vendredi</th>
+                                        <td>10h - 14h30 <br> 18h - 23h</td>
+                                        </tr>
+                                        <tr>
+                                        <th>Samedi</th>
+                                        <td>10h30 - 23h30</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dimanche</th>
+                                            <td>10h30 - 22h30</td>
+                                        </tr>
+                                    </table>-->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container_reservation_form">
-                        <h3>Réserver une Table</h3>
-                        <form action="#" class="reservation_form">
-
-                            <div class="flex">
-                                <div class="container_input">
-                                    <input type="text" class="reserv_inputs" placeholder="Nom">
-                                </div>
-                                <div class="container_input ml">
-                                    <input type="text" class="reserv_inputs" placeholder="Prénom">
-                                </div>
-                            </div>
-
-
-                            <div class="flex">
-
-                                <div class="container_input">
-                                    <div class="container_input_icon">
-                                        <div class="icon"><i class="fas fa-calendar-day"></i></div>
-                                        <input type="text" class="reserv_inputs" placeholder="Date">    
+                        <div class="container_reservation_form">
+                            <h3>Réserver une Table</h3>
+                            {{ form_start(formReservation, { 'attr' : { 'class': 'reservation_form' } }) }}
+                                <div class="flex">
+                                    <div class="container_input">
+                                        {{ form_widget(formReservation.nom)}}
+                                    </div>
+                                    <div class="container_input ml">
+                                        {{ form_widget(formReservation.email)}}
                                     </div>
                                 </div>
+                                
+                                <div class="flex">
 
+                                    <div class="container_input">
+                                        <div class="container_input_icon">
+                                            <!-- <div class="icon"><i class="fas fa-calendar-day"></i></div> -->
+                                            {{ form_widget(formReservation.date)}}    
+                                        </div>
+                                    </div>
 
+                                    <div class="container_input ml">
+                                        <div class="container_input_icon">
+                                            <!-- <div class="icon"><i class="fas fa-clock"></i></div> -->
+                                            {{ form_widget(formReservation.heure)}}
+                                        </div>
+                                    </div>
 
-                                <div class="container_input ml">
-                                    <div class="container_input_icon">
-                                        <div class="icon"><i class="fas fa-clock"></i></div>
-                                        <input type="text" class="reserv_inputs" placeholder="Heure">
+                                    <div class="container_input ml">
+                                        {{ form_widget(formReservation.telephone)}}
                                     </div>
                                 </div>
+                                <div class="flex">
 
+                                    <div class="container_input">
+                                        <div class="container_input_icon">
+                                            <!-- <div class="icon"><i class="fas fa-calendar-day"></i></div> -->
+                                            {{ form_widget(formReservation.nb_adulte)}}    
+                                        </div>
+                                    </div>
 
-                                <div class="container_input ml">
-                                    <input type="text" class="reserv_inputs" placeholder="Phone">
+                                    <div class="container_input ml">
+                                        <div class="container_input_icon">
+                                            <!-- <div class="icon"><i class="fas fa-clock"></i></div> -->
+                                            {{ form_widget(formReservation.nb_enfant)}}
+                                        </div>
+                                    </div>
+
+                                    <div class="container_input ml">
+                                        {{ form_widget(formReservation.nb_bebe)}}
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="flex">
+                                    <div class="container_input">
+                                        {{ form_widget(formReservation.message)}}
+                                    </div>
+                                    <div class="container_input ml">
+                                        {{ form_widget(formReservation.Valider)}}
+                                    </div>
+                                </div>  
+                            {{ form_end(formReservation)}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Fin Section Reservation-->
 
-                            <div class="flex">
-                                <div class="container_input">
-                                    <textarea class="reserv_inputs" placeholder="Message"></textarea>
-                                </div>
-                                <div class="container_input ml">
-                                    <input type="submit" value="Valider" class="btn_valide pt pb">
-                                </div>
-                            </div>  
-                                                
-                        </form>
+            <!-- Debut Section Menu-->
+            <section class="section_menu">
+                <div class="container_menu wrapper">
+                    <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
+                    <div id="left_side_menu">
+                        <h2 class="police_italien">Notre Menu</h2>
+                        <p class="text_menu">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                        <a class="button_menu" href="">Full Menu</a>
+                    </div>
+                    <!-- Coté droit de la boxe Menu avec les images-->
+                    <div id="right_side_menu" class="f-1">
+                        <!-- Les images du Menu -->
+                        <div class="p">
+                            <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu1.jpg') }}" alt="">
+                        </div>
+                        <div class="p">
+                            <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu2.jpg') }}" alt="">
+                        </div>
+                        <div class="p">
+                            <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu3.jpg') }}" alt="">
+                        </div>
+                        <div class="p">
+                            <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu4.jpg') }}" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Fin Section Reservation-->
+            </section>
+            <!-- Fin Section Menu-->
 
-        <!-- Debut Section Menu-->
-        <section class="section_menu">
-            <div class="container_menu wrapper">
-                <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
-                <div id="left_side_menu">
-                    <h2 class="police_italien">Notre Menu</h2>
-                    <p class="text_menu">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <a class="button_menu" href="">Full Menu</a>
-                </div>
-                <!-- Coté droit de la boxe Menu avec les images-->
-                <div id="right_side_menu" class="f-1">
-                    <!-- Les images du Menu -->
-                    <div class="p">
-                        <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu1.jpg') }}" alt="">
+            <!-- Debut Section Gallery-->
+            <section class="section_gallery">
+                <div class="div_gallery">
+                    <div>
+                        <img class="img_gallery" src="{{ asset('img/GalleryHome/gal5.jpg') }}" alt="">
                     </div>
-                    <div class="p">
-                        <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu2.jpg') }}" alt="">
+                    <div>
+                        <img class="img_gallery" src="{{ asset('img/GalleryHome/gal6.jpg') }}" alt="">
                     </div>
-                    <div class="p">
-                        <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu3.jpg') }}" alt="">
+                    <div>
+                        <img class="img_gallery" src="{{ asset('img/GalleryHome/gal7.jpg') }}" alt="">
                     </div>
-                    <div class="p">
-                        <img class="img_menu_gallery" src="{{ asset('img/MenuHome/Menu4.jpg') }}" alt="">
+                    <div>
+                        <img class="img_gallery" src="{{ asset('img/GalleryHome/gal8.jpg') }}" alt="">
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Fin Section Menu-->
+            </section>
+            <!-- Fin Section Gallery-->
 
-        <!-- Debut Section Gallery-->
-        <section class="section_gallery">
-            <div class="div_gallery">
-                <div>
-                    <img class="img_gallery" src="{{ asset('img/GalleryHome/gal5.jpg') }}" alt="">
-                </div>
-                <div>
-                    <img class="img_gallery" src="{{ asset('img/GalleryHome/gal6.jpg') }}" alt="">
-                </div>
-                <div>
-                    <img class="img_gallery" src="{{ asset('img/GalleryHome/gal7.jpg') }}" alt="">
-                </div>
-                <div>
-                    <img class="img_gallery" src="{{ asset('img/GalleryHome/gal8.jpg') }}" alt="">
-                </div>
-            </div>
-        </section>
-        <!-- Fin Section Gallery-->
+            <!-- Debut Section munti menu-->
+            <section class="section_multi_menu">
+                <div class="m-a wrapper">
+                    <div class="choix_multi_menu">
+                    <div class="onglet active" data-num="1"><p class="m-0">Plat principal</p></div>
+                    <div class="onglet" data-num="2"><p class="m-0">Boisson</p></div>
+                    <div class="onglet" data-num="3"><p class="m-0">Desserts</p></div>
+                    </div>
+                    <div class="products_container visible" data-num="1">
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                    </div>
 
-        <!-- Debut Section munti menu-->
-        <section class="section_multi_menu">
-            <div class="m-a wrapper">
-                <div class="choix_multi_menu">
-                  <div class="onglet active" data-num="1"><p class="m-0">Plat principal</p></div>
-                  <div class="onglet" data-num="2"><p class="m-0">Boisson</p></div>
-                  <div class="onglet" data-num="3"><p class="m-0">Desserts</p></div>
-                </div>
-                <div class="products_container visible" data-num="1">
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
+                    <div class="products_container" data-num="2">
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
                     </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal1.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                </div>
 
-                <div class="products_container" data-num="2">
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
+                    <div class="products_container" data-num="3">
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
+                        <div class="div_product">
+                            <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
+                            <h3>Grilled Beef</h3>
+                            <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                            <p class="prix">2.90€</p>
+                        </div>
                     </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal2.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                </div>
 
-                <div class="products_container" data-num="3">
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
-                    <div class="div_product">
-                        <img class="img_product" src="{{ asset('img/GalleryHome/gal3.png') }}" alt="">
-                        <h3>Grilled Beef</h3>
-                        <p class="product_descrip">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-                        <p class="prix">2.90€</p>
-                    </div>
                 </div>
-
-            </div>
-        </section>
-        <!-- Fin Section munti menu-->
-</main>
-{% block javascripts %}
-    <script src="{{ asset('js/onglets.js')}}"></script>
-{% endblock %}
+            </section>
+            <!-- Fin Section munti menu-->
+    </main>
+    {% block javascripts %}
+        <script src="{{ asset('js/onglets.js')}}"></script>
+    {% endblock %}
 {% endblock %}

@@ -78,14 +78,14 @@ header{
 .section_bg_img{
     background: url(../img/jungle.jpg);
     background-size: cover;
-    height: 45rem;
+    height: 50em;
 }
 
 
 /********************  Reservation form ****************/ 
 
 .section_reservation{
-    margin-top: -200px;
+    margin-top: -20em;
 }
 
 .reservation_div{
