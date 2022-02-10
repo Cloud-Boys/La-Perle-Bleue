@@ -38,12 +38,12 @@ class Reservation
     private $nbAdulte;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
      */
     private $nbEnfant;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
      */
     private $nbBebe;
 
