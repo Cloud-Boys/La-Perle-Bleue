@@ -43,7 +43,7 @@ class AccueilController extends AbstractController
 
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
-
+        
         if($form->isSubmitted() && $form->isValid()) {
             $reservation->setCreatedAt(new \DateTime());
 

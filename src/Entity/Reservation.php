@@ -38,12 +38,12 @@ class Reservation
     private $nbAdulte;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
      */
     private $nbEnfant;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
      */
     private $nbBebe;
 
@@ -67,15 +67,6 @@ class Reservation
      */
     private $message;
 
-    /**
-     * @var \DateTime
-     */
-    private $defaultDate;
-
-    public function __construct()
-    {
-        $this->defaultDate = new \DateTime();
-    }
 
     public function getId(): ?int
     {
@@ -132,7 +123,7 @@ class Reservation
 
     public function getNbEnfant(): ?int
     {
-        return $this->nbEnfant;
+        return ($this->nbEnfant  === null || $this->nbEnfant  === '') ? 0 : $this->nbEnfant;
     }
 
     public function setNbEnfant(int $nbEnfant): self
@@ -144,7 +135,7 @@ class Reservation
 
     public function getNbBebe(): ?int
     {
-        return $this->nbBebe;
+        return ($this->nbBebe  === null || $this->nbBebe  === '') ? 0 : $this->nbBebe;
     }
 
     public function setNbBebe(int $nbBebe): self

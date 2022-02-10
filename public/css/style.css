@@ -15,7 +15,7 @@ body{
 
 :root {
     --orange-color: #d38c0b;
-    --jaune-color: #d3ba0b;
+    --jaune-color: #186611;
     --cyan-color: #0ec2f7;
     --vert-color: #06a537;  
   }
@@ -30,12 +30,8 @@ body{
 
 /****************** NAV START  ************************/
 header{
-    background: transparent;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
+    background: black;
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .logo{
@@ -56,10 +52,18 @@ header{
     display: inline-block;
     font-size: 20px;
 }
+#menu-links .ubereat{
+    background: rgb(255, 255, 255);
+    
+    box-shadow: none;
+    color:black;
+    border-radius: 500px;
+    padding: 8px 12px;
+}
 #burger{
     color: #fff;
     display: none;
-    padding: 0.3em 0.4em;
+    padding: 0.3em 0.3em 0.2em 0.3em;
     border: 2px solid #fff;
     font-size: 1.5em;
     min-width: 42px;
@@ -100,7 +104,7 @@ header{
 .container_info{
     padding: 2em;
     background-color: black;
-    width: 65%;
+    width: 60%;
 }
 .info{
     display: flex;
@@ -112,8 +116,8 @@ header{
 .container_reservation_form{
     background-color: var(--jaune-color);
     padding: 1.5rem;
-    width: 35%;
-    color:white;
+    width: 40%;
+    
 }
 
 .reservation_form .container_input{
@@ -146,7 +150,7 @@ header{
 .reservation_form .container_input .icon{
     position: absolute;
     top: 50% ;
-    right: 0;
+    right: 10px;
     transform: translateY(-50%);
 }
 .reservation_form .container_input .icon i{
@@ -326,6 +330,7 @@ footer{
     }
     .container_info{
         width: 100%;
+        margin-top: 10em;
     }
     .container_reservation_form{
         width: 100%;
@@ -445,9 +450,9 @@ footer{
 
 
 /**************** Global CSS **************/
-a{
+a:hover, a:visited, a:link, a:active
+{
     text-decoration: none;
-    color: white;
 }
 textarea {
     resize: none;
@@ -456,3 +461,9 @@ textarea {
 ul {
     list-style:none;
 }
+h3{
+    font-size: 18px !important;
+}
+
+
+
