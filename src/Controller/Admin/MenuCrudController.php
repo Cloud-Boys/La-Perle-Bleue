@@ -3,7 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Menu;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use App\Controller\Admin\VichImageType;
 
 class MenuCrudController extends AbstractCrudController
 {
@@ -11,15 +15,12 @@ class MenuCrudController extends AbstractCrudController
     {
         return Menu::class;
     }
-
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            Field::new('ImageFichier')->setFormType(VichImageType::class)
         ];
     }
-    */
+    
 }
