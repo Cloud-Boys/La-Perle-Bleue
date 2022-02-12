@@ -31,7 +31,7 @@ class Menu
     private $image;
 
     /**
-     * *@Vich\UploadableField(mapping="images", fileNameProperty="Image")
+     * @Vich\UploadableField(mapping="images", fileNameProperty="Image")
      */
     private $imageFichier;
 
@@ -100,7 +100,6 @@ class Menu
     }
 
     /**
-     *
      * @param mixed $imageFichier
      */ 
     public function setImageFichier($imageFichier): void
