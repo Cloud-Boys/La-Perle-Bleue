@@ -22,16 +22,15 @@ class MenuCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-
-        $imageFichier = AssociationField::new('categorie');
-        TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class);
+        $imageFichier = TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class);
         $image = ImageField::new('image')->setBasePath('/img/upload'); 
         DateTimeField::new('updatedAt');
 
         $fields = [
             TextField::new('nom'),
             Field::new('prix'),
-            TextField::new('description')
+            TextField::new('description'),
+            AssociationField::new('categorie')
         ];
 
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
