@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Security\EmailVerifier;
 use App\Form\RegistrationFormType;
+use App\Repository\UserRepository;
 use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -54,7 +55,7 @@ class SecurityController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-            $this->addFlash('success', "Le compte a été crée, veuillez consulter vos l'email");
+            $this->addFlash('success', "Le compte a été crée, veuillez consulter 'adresse email fournis");
             return $this->redirectToRoute('admin');
         }
 
@@ -66,13 +67,25 @@ class SecurityController extends AbstractController
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
-    public function verifyUserEmail(Request $request): Response
+    public function verifyUserEmail(Request $request, UserRepository $userRepository): Response
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+        $id = $request->get('id'); //Cherche l'id de l'user depuis l'URL
+        
+        //Vérifie que l'id de l'user existe et n'est pas null
+        if (null === $id) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $user = $userRepository->find($id);
+
+        //Vérifie que l'user existe dans la persistence
+        if (null === $user) {
+            return $this->redirectToRoute('app_login');
+        }
 
         // validate email confirmation link, sets User::isVerified=true and persists
         try {
-            $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
+            $this->emailVerifier->handleEmailConfirmation($request, $user);
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
@@ -81,6 +94,7 @@ class SecurityController extends AbstractController
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
+        return $this->redirectToRoute('app_login');
     }
     
     /**
