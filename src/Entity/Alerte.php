@@ -20,6 +20,11 @@ class Alerte
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $email;
 
     /**
@@ -52,6 +57,26 @@ class Alerte
     public function setStatut(bool $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nom
+     */ 
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set the value of nom
+     *
+     * @return  self
+     */ 
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
 
         return $this;
     }
