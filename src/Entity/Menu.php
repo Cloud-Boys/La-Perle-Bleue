@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\MenuRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MenuRepository;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=MenuRepository::class)
+ * @Vich\Uploadable()
  */
 class Menu
 {
@@ -28,9 +31,35 @@ class Menu
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="images", fileNameProperty="Image")
+     */
+    private $imageFichier;
+
+    /**
+     * @ORM\Column(type="datetime") 
+     */
+    private $updatedAt;
+
+    /**
      * @ORM\Column(type="float")
      */
     private $prix;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="menus")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +98,62 @@ class Menu
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */ 
+    public function getImageFichier()
+    {
+        return $this->imageFichier;
+    }
+
+    /**
+     * @param mixed $imageFichier
+     */ 
+    public function setImageFichier($imageFichier): void
+    {
+        $this->imageFichier = $imageFichier;
+
+        if($imageFichier){
+            $this->updatedAt = new \DateTime();
+        }
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
