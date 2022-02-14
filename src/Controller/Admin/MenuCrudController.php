@@ -11,7 +11,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class MenuCrudController extends AbstractCrudController
 {
@@ -30,7 +29,7 @@ class MenuCrudController extends AbstractCrudController
             TextField::new('nom'),
             Field::new('prix'),
             TextField::new('description'),
-            AssociationField::new('categorie')
+            TextField::new('categorie', 'Catégorie')
         ];
 
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
