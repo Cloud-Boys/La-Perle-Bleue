@@ -49,13 +49,13 @@ class SecurityController extends AbstractController
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('no-reply@company.fr', 'La Perle Bleue Administrateur'))
+                    ->from(new Address('reservation@perlebleue.fr', 'La Perle Bleue - Administration'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject('Veuillez comfirmer votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-            $this->addFlash('success', "Le compte a été crée, veuillez consulter 'adresse email fournis");
+            $this->addFlash('success', "Le compte a été crée, veuillez consulter l'adresse email fournis");
             return $this->redirectToRoute('admin');
         }
 

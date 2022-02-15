@@ -27,6 +27,9 @@
                     <a class="nav_link mr" href="menu.html">Menu</a>
                     <a class="nav_link mr" target="_blank" href="https://www.ubereats.com/fr/store/la-perle-bleue/p2uKdKaZViePwyIxl6_CxQ?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjI1JTIwUnVlJTIwZGUlMjBQbG9ic2hlaW0lMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJDaElKdzAwWElCREpsa2NSR2NMbmphNzMtdWslMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIyZ29vZ2xlX3BsYWNlcyUyMiUyQyUyMmxhdGl0dWRlJTIyJTNBNDguNTY2NTA3OSUyQyUyMmxvbmdpdHVkZSUyMiUzQTcuNzY3NTg4JTdE&ps=1">UberEats</a>
                     <a class="nav_link mr" href="contact.html">Contact</a>
+                    {% if is_granted('ROLE_USER') %} 
+                    <a class="nav_link mr" href="{{ path('admin')}}">Admin</a>
+                    {% endif %}
                 </div>
                 <div id="burger">
                     <i class="fas fa-bars"></i>

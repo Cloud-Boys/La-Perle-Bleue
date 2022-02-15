@@ -35,6 +35,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégorie', 'fa fa-file-pdf', Categorie::class);
         yield MenuItem::linkToCrud('Menu', 'fa fa-file-pdf', Menu::class);
         yield MenuItem::section('Administration');
+        yield MenuItem::linkToRoute('Accueil du site', 'fa fa-file-pdf', 'accueil');
         yield MenuItem::linkToRoute('Crée un Admin', 'fa fa-file-pdf', 'app_register');
     }
     
