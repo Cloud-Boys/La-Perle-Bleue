@@ -5,7 +5,7 @@
 {% block stylesheets %}    
  
     <!-- Include Bootstrap CDN -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/timepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     
 {% endblock %}
@@ -13,6 +13,11 @@
 {% block body %}
 
     <main>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <!-- Début Section Accueil : image et texte-->
             <section class="section_bg_img flex jc-center ai-center">
                 <div class="ta-center white">
@@ -61,13 +66,14 @@
                         </div>
                         <div class="container_reservation_form">
                             <h3 class="white">Réserver une Table</h3>
-                            {{ form_start(formReservation, { 'attr' : { 'class': 'reservation_form' } }) }}
+                            {{ form_start(formReservation, {'action': path('Email'), 'attr' : { 'class': 'reservation_form','autocomplete' : 'off'} }) }}
                                 <div class="flex">
                                     <div class="container_input">
                                         {{ form_widget(formReservation.nom)}}
                                     </div>
                                     <div class="container_input ml">
                                         {{ form_widget(formReservation.email)}}
+                                  
                                     </div>
                                 </div>
                                 
@@ -75,7 +81,7 @@
                                 
                                     <div class="container_input">
                                         <div class="container_input_icon">
-                                                <div class=" datepicker date ">
+                                                <div class="input-group date">
                                                     {{ form_widget(formReservation.date)}}
                                                     <div class="icon"><i class="fas fa-calendar-alt white"></i></div>
                                                 </div>
@@ -84,7 +90,7 @@
 
                                     <div class="container_input ml">
                                         <div class="container_input_icon">
-                                            <div class=" timepicker date ">
+                                            <div class=" timepicker ">
                                                 {{ form_widget(formReservation.heure)}}
                                                 <div class="icon"><i class="fas fa-clock white"></i></div>
                                             </div>                                            
@@ -255,17 +261,17 @@
 
     </main>
     {% block javascripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" ></script>
+
+        <script src="{{ asset('js/timepicker.js') }}"></script>
         <!-- Include Moment.js CDN -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
         <script src="{{ asset('js/onglets.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
-        <script>
-
-        </script>
 
     {% endblock %}
 {% endblock %}
+

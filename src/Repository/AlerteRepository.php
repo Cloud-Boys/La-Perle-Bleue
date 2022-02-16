@@ -18,6 +18,16 @@ class AlerteRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Alerte::class);
     }
+    
+    public function findEmailAllAlerte()
+    {
+        return $this->createQueryBuilder('a')
+        ->select('a.email')
+            ->andWhere('a.statut = 1')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return Alerte[] Returns an array of Alerte objects

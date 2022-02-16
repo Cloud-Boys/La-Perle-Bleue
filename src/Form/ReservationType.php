@@ -10,7 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -35,7 +34,7 @@ class ReservationType extends AbstractType
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
                 'html5' => FALSE,
-                'format' => 'DD-MM-YYYY',
+                'format' => 'DD/MM/YYYY',
                 'attr' => [
                     'placeholder' => "Date",
                     'class' => 'form-control datepicker reserv_inputs cursor-text'
@@ -49,7 +48,7 @@ class ReservationType extends AbstractType
                     'class' => 'form-control timepicker reserv_inputs cursor-text'
                 ]
             ])
-            ->add('telephone',NumberType::class, [
+            ->add('telephone',TextType::class, [
                 'attr' => [
                     'placeholder' => "Numéro de téléphone",
                     'class' => 'reserv_inputs'
@@ -72,7 +71,6 @@ class ReservationType extends AbstractType
                     'class' => 'reserv_inputs',
                     'min' => '0',
                     'max' => '30',
-                    'data' => 0
                 ]
             ])
             ->add('nb_bebe', IntegerType::class, [

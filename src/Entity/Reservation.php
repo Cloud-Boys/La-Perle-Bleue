@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReservationRepository::class)
@@ -29,6 +30,10 @@ class Reservation
 
     /**
      * @ORM\Column(type="string", length=15)
+     * @Assert\Regex(
+     *     pattern="/^0[3-6-7][0-9]{8}$/",
+     *     message="Ce n'est pas un numéro de téléphone portable valide !"
+     * )
      */
     private $telephone;
 
@@ -123,7 +128,7 @@ class Reservation
 
     public function getNbEnfant(): ?int
     {
-        return ($this->nbEnfant  === null || $this->nbEnfant  === '') ? 0 : $this->nbEnfant;
+        return $this->nbEnfant;
     }
 
     public function setNbEnfant(int $nbEnfant): self
@@ -135,7 +140,7 @@ class Reservation
 
     public function getNbBebe(): ?int
     {
-        return ($this->nbBebe  === null || $this->nbBebe  === '') ? 0 : $this->nbBebe;
+        return $this->nbBebe;
     }
 
     public function setNbBebe(int $nbBebe): self
