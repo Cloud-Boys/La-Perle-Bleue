@@ -34,10 +34,10 @@ class ReservationType extends AbstractType
             ->add('date', DateType::class, [
                 'widget' => 'single_text',
                 'html5' => FALSE,
-                'format' => 'DD/MM/YYYY',
+                'format' => 'dd/MM/yyyy',
                 'attr' => [
                     'placeholder' => "Date",
-                    'class' => 'form-control datepicker reserv_inputs cursor-text'
+                    'class' => 'form-control reserv_inputs cursor-text'
                 ],
             ])
             ->add('heure', TimeType::class, [

@@ -1,11 +1,16 @@
+
+
+
 $(function () {
 
     // ACTIVATION DU DATEPICKER 
     $('.datepicker').datepicker({
-        format: 'DD/MM/YYYY',
-
+        format: 'dd/mm/yyyy',
+        language: "fr",
+        daysShort: true,
         datesDisabled: ['02/03/2022'],
-        daysOfWeekDisabled: ['0,6']
+        daysOfWeekDisabled: [1,0],
+        startDate: new Date(),
     });
     /*
     $('.timepicker').datetimepicker({

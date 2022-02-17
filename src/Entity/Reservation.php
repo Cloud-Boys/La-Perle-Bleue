@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ReservationRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,6 +26,9 @@ class Reservation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' est incorrect."
+     * )
      */
     private $email;
 
@@ -39,16 +43,19 @@ class Reservation
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero
      */
     private $nbAdulte;
 
     /**
      * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
+     * @Assert\PositiveOrZero
      */
     private $nbEnfant;
 
     /**
      * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
+     * @Assert\PositiveOrZero
      */
     private $nbBebe;
 

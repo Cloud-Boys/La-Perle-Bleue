@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 
 *{
     box-sizing: border-box;
 }
 body{
-    background: url(../img/bg0.jpg.webp) no-repeat fixed;
+    background: url(../img/jungle.jpg) no-repeat;
     background-size: cover;
     font-family: sans-serif;
     font-weight: 500;
@@ -30,9 +30,12 @@ body{
 
 /****************** NAV START  ************************/
 header{
-    background: black;
-
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
 }
 .logo{
     width: 5em;
@@ -80,9 +83,9 @@ header{
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/jungle.jpg);
+    background: url(../img/jungle.jpg) fixed;
     background-size: cover;
-    height: 50em;
+    height: 60em;
 }
 
 
@@ -165,11 +168,105 @@ header{
     color: #000;
 }
 
+
+/*********** DATE PICKER ****************/
+
+.input-group {
+    border-radius: 5px;
+}
+
+input.form-control {
+    border-radius: 5px 0 0 5px;
+    border: solid 1px rgba(0,0,0,.15);
+    border-right: none;
+}
+
+input.form-control:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.15);
+}
+
+input.form-control::placeholder {
+    font-family: 'Open sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.input-group-append {
+    border: solid 1px rgba(0,0,0,.15);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.input-group-text {
+    border-radius: 0 5px 5px 0;
+    color: #04c;
+    background-color: #fff;
+    border: none;
+}
+
+/*
+*
+* ==========================================
+* PERSONNALISATION DU CALENDRIER
+* ==========================================
+*
+*/
+.datepicker-dropdown {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
+    
+}
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
+    color: rgb(185, 0, 0);
+    
+}
+.datepicker td{
+    color: #12c402;
+}
+
+
+.datepicker {
+    padding: 0;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.datepicker-dropdown:after {
+    border-bottom-color: #08c;
+}
+
+.datepicker-days .table-condensed thead tr:nth-child(2), .datepicker-months .table-condensed thead tr:nth-child(2),
+.datepicker-years .table-condensed thead tr:nth-child(2), .datepicker-decades .table-condensed thead tr:nth-child(2),
+.datepicker-centuries .table-condensed thead tr:nth-child(2) {
+    background: linear-gradient(to bottom,#08c,#04c);
+    color: #fff;
+}
+.datepicker-days .table-condensed thead tr:nth-child(2) th:hover, .datepicker-months .table-condensed thead tr:nth-child(2) th:hover,
+.datepicker-years .table-condensed thead tr:nth-child(2) th:hover,.datepicker-decades .table-condensed thead tr:nth-child(2) th:hover,
+.datepicker-centuries .table-condensed thead tr:nth-child(2) th:hover {
+    background: linear-gradient(to bottom,#08c,#04c);
+    color: #fff;
+}
+
+.datepicker-days .table-condensed tfoot, .datepicker-months .table-condensed tfoot, .datepicker-years .table-condensed tfoot,
+.datepicker-decades .table-condensed tfoot, .datepicker-centuries .table-condensed tfoot {
+    border-top: solid 1px rgba(0,0,0,.15);
+}
+
+
+
 /****************** Start Menu *****************/
 
 .section_menu{
     color: var(--orange-color);
     padding: 10em 0 10em;
+    background-color: rgba(21, 31, 18, 0.85);
 }
 .container_menu{
     display: flex;
@@ -221,7 +318,6 @@ header{
 .div_gallery{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 10em;
 }
 
 
@@ -232,6 +328,11 @@ header{
 }
 
 /*************** Start Menu Onglets ******************/
+
+.section_multi_menu{
+    background-color: rgba(21, 31, 18, 0.9);
+    padding: 10em 10em;
+}
 
 .main_div{
     margin: auto;
@@ -272,7 +373,7 @@ header{
     color: white;
     max-width: 80%;
     margin: auto;
-    margin-bottom: 10em;
+
 }
 .products_container:not(.visible){
     display: none;
@@ -304,7 +405,7 @@ header{
 /**************** Start Footer *********************/
 
 footer{
-    background-color: rgb(27, 26, 26);
+    background-color: #000;
     color: white;
 }
 .div_footer{
