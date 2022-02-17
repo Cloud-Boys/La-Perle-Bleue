@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block body %}
+        <main>
+            <section class="section_multi_menu">
+                <div class="m-a wrapper">
+                    <div class="choix_multi_menu">
+
+                    {% for cat in categories %}
+
+                        {% if cat.id == 1 %}
+
+                            <div class="onglet active" data-num="{{ cat.id }}"><p class="m-0">{{cat.nom}}</p>
+                            </div>
+                        
+                        {% else %}
+                        
+                            <div class="onglet" data-num="{{ cat.id }}"><p class="m-0">{{cat.nom}}</p>
+                            </div>
+
+                        {% endif %}
+
+                    {% endfor %}
+                    
+                   </div>
+
+                   {% for cat in categories %}
+
+                   {% if cat.id == 1 %}
+
+                            <div class="products_container visible" data-num="{{ cat.id  }}">
+
+                        {% else %}
+
+                            <div class="products_container" data-num="{{ cat.id  }}">
+
+                        {% endif %}
+
+                        {% for menu in menus %}
+                        {% if menu.categorie.id == cat.id %}
+                     
+                                    <div class="div_product">
+                                        <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="">
+                                        <h3>{{menu.nom}}</h3>
+                                        <p class="product_descrip">{{menu.description}}</p>
+                                        <p class="prix">{{menu.prix}}€</p>
+                                    </div>
+                        {% endif %}
+
+                        {% endfor %}
+                        
+                                </div>
+
+                    {% endfor %}
+                    
+                </div>
+            </section>
+        </main>
+        
+    {% block javascripts %}
+        <script src="{{ asset('js/onglets.js')}}"></script>
+    {% endblock %}
+{% endblock %}
