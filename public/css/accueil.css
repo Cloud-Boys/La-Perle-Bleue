@@ -13,7 +13,7 @@ body{
     --jaune-color: #186611;
     --cyan-color: #0ec2f7;
     --vert-color: #06a537;  
-  }
+}
 
 .wrapper{
     margin: auto;
@@ -23,11 +23,10 @@ body{
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/jungle.jpg) no-repeat fixed;
+    background: url(../img/jungle.jpg);
     background-size: cover;
     height: 55em;
 }
-
 
 /********************  Reservation form ****************/ 
 
@@ -57,7 +56,7 @@ body{
 
 /******* Form Reservation ******/ 
 .container_reservation_form{
-    background-color: var(--jaune-color);
+    background-color: rgba(1 ,42 ,20 , 0.90);
     padding: 1.5rem;
     width: 40%;
     
