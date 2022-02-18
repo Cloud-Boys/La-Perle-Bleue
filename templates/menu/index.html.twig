@@ -3,7 +3,6 @@
 {% block title %}Menu{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock %}
@@ -11,7 +10,7 @@
 {% block body %}
         <main>
             <section class="section_multi_menu">
-                <div class="m-a wrapper">
+                <div class="">
                     <div class="choix_multi_menu">
 
                     {% for cat in categories %}

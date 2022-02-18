@@ -1,4 +1,31 @@
+body{
+    background: url(../img/jungle.jpg) no-repeat fixed;
+    background-size: cover;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+}
+
+:root {
+    --orange-color: #d38c0b;
+    --jaune-color: #186611;
+    --cyan-color: #0ec2f7;
+    --vert-color: #06a537;  
+  }
+
+.wrapper{
+    margin: auto;
+    max-width: 1224px;
+}
+
 /*************** Start Menu Onglets ******************/
+
+.section_multi_menu{
+    background-color: rgba(21, 31, 18, 0.9);
+    padding: 10em 0 10em;
+}
 
 .main_div{
     margin: auto;
