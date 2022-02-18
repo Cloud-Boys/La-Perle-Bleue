@@ -29,6 +29,11 @@ class Categorie
      */
     private $menus;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
     public function __construct()
     {
         $this->menus = new ArrayCollection();
@@ -84,5 +89,17 @@ class Categorie
     public function __toString()
     {
         return $this->nom;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
+
+        return $this;
     }
 }
