@@ -41,7 +41,7 @@ class Menu
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string")
      */
     private $prix;
 
@@ -86,18 +86,6 @@ class Menu
     public function setImage(string $image): self
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    public function getPrix(): ?float
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(float $prix): self
-    {
-        $this->prix = $prix;
 
         return $this;
     }
@@ -154,6 +142,26 @@ class Menu
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prix
+     */ 
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set the value of prix
+     *
+     * @return  self
+     */ 
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
 
         return $this;
     }

@@ -34,7 +34,7 @@ class MenuCrudController extends AbstractCrudController
 
         $fields = [
             TextField::new('nom'),
-            Field::new('prix'),
+            TextField::new('prix'),
             TextField::new('description'),
         ];
 
