@@ -20,6 +20,15 @@ body{
     max-width: 1224px;
 }
 
+/****************** HOME PICTURE DIV   *********/
+.section_bg_img{
+    justify-content: center;
+    background: url(../img/jungle.jpg) no-repeat fixed;
+    background-size: cover;
+    height: 15em;
+    margin-top: 5em;
+}
+
 /*************** Start Menu Onglets ******************/
 
 .section_multi_menu{
@@ -66,7 +75,6 @@ body{
     color: white;
     max-width: 80%;
     margin: auto;
-    margin-bottom: 10em;
 }
 .products_container:not(.visible){
     display: none;
@@ -75,12 +83,15 @@ body{
 
 .div_product{
     text-align: center;
+    margin: 1em;
     padding: 1em;
+    background-color: rgba(0, 0, 0, 0.20);
 }
 .img_product{
     width: 100%;
     height: 15em;
     object-fit: cover;
+    padding-bottom: 1em;
 }
 .div_product >h3{
     font-size: 18px;

@@ -9,8 +9,14 @@
 
 {% block body %}
         <main>
+                <!-- Début Section Accueil : image et texte-->
+                <section class="section_bg_img flex jc-center ai-center">
+                    <div class="ta-center white mb-5">
+                        <h1 id="main_titre" class="shadow_contour">Menu</h1>
+                    </div>
+                </section>
+                <!-- Fin Section Accueil-->
             <section class="section_multi_menu">
-                <div class="">
                     <div class="choix_multi_menu">
 
                     {% for cat in categories %}
@@ -30,6 +36,8 @@
                     {% endfor %}
                     
                    </div>
+                   
+                   <div class="container_menu wrapper">
 
                    {% for cat in categories %}
 
