@@ -6,7 +6,7 @@
  
     <!-- Include Bootstrap CDN -->
     <link rel="stylesheet" href="{{ asset('css/timepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
     
 {% endblock %}
 
@@ -37,14 +37,14 @@
                         <div class="container_info">
                             <div class="flex wrap white">  
                                 <div class="info f-1">
-                                    <h3><i class="fas fa-phone-alt mr cyan"></i>03 88 60 54 54</h3>
+                                    <h4 class="fs-18"><i class="fas fa-phone-alt mr cyan"></i>03 88 60 54 54</h4>
                                 </div>
                                 <div class="info f-1">
-                                    <h3><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel</h3>
+                                    <h4 class="fs-18"><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel</h4>
                                     <p class="gray m-0">67400 Illkirch-Graffenstaden</p>
                                 </div>
                                 <div class="info f-1-5">
-                                    <h3><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h3>
+                                    <h4 class="fs-18"><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h4>
                                     {% for ferme in fermetures %}
                                         <p class="red">Les Réservations sont indisponible du : <br> {{ferme.debut|date("d/m/Y")}} au {{ferme.fin|date("d/m/Y")}}</p>
                                     {% endfor %}

@@ -2,15 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Alerte;
 use App\Entity\Fermeture;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Address;
 use App\Repository\AlerteRepository;
 use App\Repository\FermetureRepository;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +14,6 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bridge\Doctrine\ManagerRegistry as DoctrineManagerRegistry;
 
 class AccueilController extends AbstractController
 {

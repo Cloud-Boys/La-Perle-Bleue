@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block stylesheets %}    
+    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+{% endblock %}
+
+{% block body %}
+
+        <main>
+                <!-- Début Section Accueil : image et texte-->
+                <section class="section_bg_img flex jc-center ai-center">
+                    <div class="ta-center white">
+                        <p class="police_italien shadow">Contact</p>
+                        <h1 id="main_titre" class="shadow_contour">PERLE BLEUE depuis 1998</h1>
+                    </div>
+                </section>
+                <!-- Fin Section Accueil-->
+            
+
+                <section class="ftco-section">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                                <div class="wrapper">
+                                    <div class="row no-gutters mb-5">
+                                        <div class="col-md-7">
+                                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                                <h3 class="mb-4">Contactez-nous</h3>
+                                                <div id="form-message-warning" class="mb-4"></div> 
+                                                    <div id="form-message-success" class="mb-4">
+                                                        {% for message in app.flashes('success') %}
+                                                                {{ message }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {{ form_start(formContact, {'attr' : { 'class': 'contactForm','autocomplete' : 'off'} }) }}
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="label" for="nom">Nom</label>
+                                                                {{ form_widget(formContact.nom)}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6"> 
+                                                            <div class="form-group">
+                                                                <label class="label" for="email">Email</label>
+                                                                {{ form_widget(formContact.email)}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="label" for="sujet">Sujet</label>
+                                                                {{ form_widget(formContact.sujet)}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="label" for="message">Message</label>
+                                                                {{ form_widget(formContact.message)}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                {{ form_widget(formContact.Valider)}}
+                                                                <div class="submitting"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {{ form_end(formContact)}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 d-flex align-items-stretch">
+                                            <div id="map">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.009750209534!2d7.708779315662205!3d48.51387777925514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796cb752945848d%3A0xb26dc5a1183172ba!2sLa%20perle%20bleue!5e0!3m2!1sfr!2sfr!4v1645177314692!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-map-marker"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p class="white">Addresse: 1 Rue du Hoelzel, 67400 Illkirch-Graffenstaden</p>
+                                        </div>
+                                    </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-phone"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p class="white">Phone: 03 88 60 54 54</p>
+                                        </div>
+                                    </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </div>
+                                        <div class="text">
+                                        <p class="white">Email: laperlebleue@gmail.com</p>
+                                      </div>
+                                  </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-globe"></span>
+                                        </div>
+                                        <div class="text">
+                                        <p class="white">Website: perlebleue.com</p>
+                                      </div>
+                                  </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+        </main>
+        {% block javascripts %}
+
+    
+        {% endblock %}
+    {% endblock %}

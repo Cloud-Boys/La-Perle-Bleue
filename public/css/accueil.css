@@ -1,14 +1,9 @@
-
-
-*{
-    box-sizing: border-box;
-}
 body{
     background: url(../img/jungle.jpg) no-repeat;
     background-size: cover;
     font-family: sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
     margin: 0;
     text-align: left;
 }
@@ -25,65 +20,10 @@ body{
     max-width: 1224px;
 }
 
-/****************** HEADER START  ************************/
-
-
-/****************** NAV START  ************************/
-header{
-    background-color: transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-}
-.logo{
-    width: 5em;
-    border-radius: 80%;
-}
-/* Navbar */
-#menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-#menu-links a{
-    color: #fff;
-    margin-left: 0.5em;
-    display: inline-block;
-    font-size: 20px;
-}
-#menu-links .ubereat{
-    background: rgb(255, 255, 255);
-    
-    box-shadow: none;
-    color:black;
-    border-radius: 500px;
-    padding: 8px 12px;
-}
-#burger{
-    color: #fff;
-    display: none;
-    padding: 0.3em 0.3em 0.2em 0.3em;
-    border: 2px solid #fff;
-    font-size: 1.5em;
-    min-width: 42px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.side-spaced{
-    padding: 1em 6em;
-}
-
-/****************** NAV END  ************************/
-
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/jungle.jpg) fixed;
+    background: url(../img/jungle.jpg) no-repeat fixed;
     background-size: cover;
     height: 60em;
 }
@@ -331,7 +271,7 @@ input.form-control::placeholder {
 
 .section_multi_menu{
     background-color: rgba(21, 31, 18, 0.9);
-    padding: 10em 10em;
+    padding: 10em 0 10em;
 }
 
 .main_div{
@@ -390,6 +330,7 @@ input.form-control::placeholder {
     object-fit: cover;
 }
 .div_product >h3{
+    margin-top: 1em;
     font-size: 18px;
     text-transform: uppercase;
 }
@@ -402,17 +343,7 @@ input.form-control::placeholder {
     font-weight: 600;
 }
 
-/**************** Start Footer *********************/
 
-footer{
-    background-color: #000;
-    color: white;
-}
-.div_footer{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2em;
-}
 
 
 
@@ -471,48 +402,6 @@ footer{
         grid-template-columns: repeat(2, 1fr);
         max-width: 100%;
     }
-    /*** Footer ***/
-    .div_footer{
-        grid-template-columns: repeat(2, 1fr);
-        padding: 1em;
-    }
-
-
-    /***** Menu burger ****/
-    #burger{
-        display: block;
-    }
-    
-    #menu-links{
-        transform: scaleY(0);
-        transform-origin: top;
-        overflow: hidden;
-        width: 100%;
-        background-color: transparent;
-        text-align: center;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        z-index: 0;
-        transition: line-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        line-height: 0;
-        padding: 0 1em;
-        opacity: 0;
-    }
-    #menu-links.slideDown{
-        transform: scaleY(1);
-        line-height: 1.5;
-        opacity: 1;
-    }
-    #menu-links a{
-        display: block;
-        margin: 0.5em 0 0.5em 0.5em;
-    }
-
-    .side-spaced{
-        padding: 1em;
-    }
-
 }
 @media (max-width: 550px){
     /*** Menu ***/
@@ -536,16 +425,6 @@ footer{
         grid-template-columns: repeat(1, 1fr);
         max-width: 90%;
     }
-    
-    /*** Footer ***/
-    .div_footer{
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 80%;
-        margin: auto;
-    }
-    .div_footer>div{
-        padding-bottom: 1em;
-    }
 }
 
 
@@ -561,9 +440,6 @@ textarea {
 
 ul {
     list-style:none;
-}
-h3{
-    font-size: 18px !important;
 }
 
 

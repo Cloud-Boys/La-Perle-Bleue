@@ -1,0 +1,207 @@
+body{
+    background: url(../img/bg0.jpg.webp) no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+:root {
+    --orange-color: #d38c0b;
+    --jaune-color: #186611;
+    --cyan-color: #0ec2f7;
+    --vert-color: #06a537;  
+}
+
+.wrapper{
+    margin: auto;
+    max-width: 1224px;
+}
+
+
+/****************** HOME PICTURE DIV   *********/
+.section_bg_img{
+    background: url(../img/jungle.jpg) no-repeat fixed;
+    background-size: cover;
+    height: 50em;
+}
+
+
+
+
+
+
+
+
+.info_contact{
+    color: white;
+}
+
+a {
+    transition: 0.3s all ease;
+}
+a:hover, a:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.bg-primary {
+    background: #2553b8 !important;
+}
+.ftco-section {
+    padding: 7em 0;
+}
+.ftco-no-pt {
+    padding-top: 0;
+}
+.ftco-no-pb {
+    padding-bottom: 0;
+}
+.heading-section {
+    font-size: 28px;
+    color: black;
+}
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.container{
+    max-width: 1500px;
+}
+.form-control {
+    height: 44px;
+    background: white;
+    color: rgba(0, 0, 0, .8);
+    font-size: 14px;
+    border-radius: 2px;
+    box-shadow: none !important;
+    border: none;
+}
+.form-control::-webkit-input-placeholder {
+   /* Chrome/Opera/Safari */
+    color: rgba(0, 0, 0, .3) !important;
+}
+.form-control::-moz-placeholder {
+   /* Firefox 19+ */
+    color: rgba(0, 0, 0, .3) !important;
+}
+.form-control:-ms-input-placeholder {
+   /* IE 0+ */
+    color: rgba(0, 0, 0, .3) !important;
+}
+.form-control:-moz-placeholder {
+   /* Firefox 18- */
+    color: rgba(0, 0, 0, .3) !important;
+}
+.form-control:focus, .form-control:active {
+    border-color: #2553b8 !important;
+}
+textarea.form-control {
+    height: inherit !important;
+}
+.wrapper {
+    width: 100%;
+}
+.contact-wrap {
+    background: #e8edf0;
+}
+.dbox {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+.dbox p {
+    margin-bottom: 0;
+}
+.dbox p span {
+    font-weight: 500;
+    color: black;
+}
+.dbox p a {
+    color: #2553b8;
+}
+.dbox .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #2553b8;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.dbox .icon span {
+    font-size: 20px;
+    color: white;
+}
+.dbox .text {
+    width: 100%;
+}
+.btn {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    position: relative;
+    margin-bottom: 20px;
+}
+.btn.btn-primary {
+    background: #2553b8 !important;
+    border-color: #2553b8 !important;
+    color: white;
+}
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+    border-color: #1c408e !important;
+    background: #1c408e !important;
+}
+.contactForm .label {
+    color: black;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+.contactForm .form-control {
+    border: none;
+}
+#map {
+    width: 100%;
+}
+#contactForm .error {
+    color: red;
+    font-size: 12px;
+}
+#contactForm .form-control {
+    font-size: 16px;
+}
+#message {
+    resize: vertical;
+}
+#form-message-warning, #form-message-success {
+    display: none;
+}
+#form-message-warning {
+    color: red;
+}
+#form-message-success {
+    color: green;
+    font-size: 18px;
+    font-weight: 500;
+}
+.submitting {
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    display: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2553b8;
+}
+

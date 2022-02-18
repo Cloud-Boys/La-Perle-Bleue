@@ -34,6 +34,9 @@
 .cyan{
     color: #0EC2f7;
 }
+.bleu{
+    color: #1651bd;
+}
 /********** Flex **************/
 .flex{
     display: flex;
@@ -155,7 +158,7 @@
 }
 
 
-.shadow{
+.shadow_contour{
     text-shadow: -1px 1px 0 #000,
                           1px 1px 0 #000,
                          1px -1px 0 #000,
