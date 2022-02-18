@@ -1,21 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-*{
-    box-sizing: border-box;
-}
 body{
-    background: url(../img/bg0.jpg.webp) no-repeat fixed;
+    background: url(../img/jungle.jpg) no-repeat;
     background-size: cover;
     font-family: sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
     margin: 0;
     text-align: left;
 }
 
 :root {
     --orange-color: #d38c0b;
-    --jaune-color: #d3ba0b;
+    --jaune-color: #186611;
     --cyan-color: #0ec2f7;
     --vert-color: #06a537;  
   }
@@ -25,56 +20,12 @@ body{
     max-width: 1224px;
 }
 
-/****************** HEADER START  ************************/
-
-
-/****************** NAV START  ************************/
-header{
-    background: transparent;
-    z-index: 2;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.logo{
-    width: 5em;
-    border-radius: 80%;
-}
-/* Navbar */
-#menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-#menu-links a{
-    color: #fff;
-    margin-left: 0.5em;
-    display: inline-block;
-    font-size: 20px;
-}
-#burger{
-    color: #fff;
-    display: none;
-    padding: 0.3em 0.4em;
-    border: 2px solid #fff;
-    font-size: 1.5em;
-    min-width: 42px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.side-spaced{
-    padding: 1em 6em;
-}
-
-/****************** NAV END  ************************/
-
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/jungle.jpg);
+    background: url(../img/jungle.jpg) no-repeat fixed;
     background-size: cover;
-    height: 50em;
+    height: 60em;
 }
 
 
@@ -96,7 +47,7 @@ header{
 .container_info{
     padding: 2em;
     background-color: black;
-    width: 65%;
+    width: 60%;
 }
 .info{
     display: flex;
@@ -108,8 +59,8 @@ header{
 .container_reservation_form{
     background-color: var(--jaune-color);
     padding: 1.5rem;
-    width: 35%;
-    color:white;
+    width: 40%;
+    
 }
 
 .reservation_form .container_input{
@@ -142,7 +93,7 @@ header{
 .reservation_form .container_input .icon{
     position: absolute;
     top: 50% ;
-    right: 0;
+    right: 10px;
     transform: translateY(-50%);
 }
 .reservation_form .container_input .icon i{
@@ -157,11 +108,105 @@ header{
     color: #000;
 }
 
+
+/*********** DATE PICKER ****************/
+
+.input-group {
+    border-radius: 5px;
+}
+
+input.form-control {
+    border-radius: 5px 0 0 5px;
+    border: solid 1px rgba(0,0,0,.15);
+    border-right: none;
+}
+
+input.form-control:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.15);
+}
+
+input.form-control::placeholder {
+    font-family: 'Open sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.input-group-append {
+    border: solid 1px rgba(0,0,0,.15);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.input-group-text {
+    border-radius: 0 5px 5px 0;
+    color: #04c;
+    background-color: #fff;
+    border: none;
+}
+
+/*
+*
+* ==========================================
+* PERSONNALISATION DU CALENDRIER
+* ==========================================
+*
+*/
+.datepicker-dropdown {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
+    
+}
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
+    color: rgb(185, 0, 0);
+    
+}
+.datepicker td{
+    color: #12c402;
+}
+
+
+.datepicker {
+    padding: 0;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.datepicker-dropdown:after {
+    border-bottom-color: #08c;
+}
+
+.datepicker-days .table-condensed thead tr:nth-child(2), .datepicker-months .table-condensed thead tr:nth-child(2),
+.datepicker-years .table-condensed thead tr:nth-child(2), .datepicker-decades .table-condensed thead tr:nth-child(2),
+.datepicker-centuries .table-condensed thead tr:nth-child(2) {
+    background: linear-gradient(to bottom,#08c,#04c);
+    color: #fff;
+}
+.datepicker-days .table-condensed thead tr:nth-child(2) th:hover, .datepicker-months .table-condensed thead tr:nth-child(2) th:hover,
+.datepicker-years .table-condensed thead tr:nth-child(2) th:hover,.datepicker-decades .table-condensed thead tr:nth-child(2) th:hover,
+.datepicker-centuries .table-condensed thead tr:nth-child(2) th:hover {
+    background: linear-gradient(to bottom,#08c,#04c);
+    color: #fff;
+}
+
+.datepicker-days .table-condensed tfoot, .datepicker-months .table-condensed tfoot, .datepicker-years .table-condensed tfoot,
+.datepicker-decades .table-condensed tfoot, .datepicker-centuries .table-condensed tfoot {
+    border-top: solid 1px rgba(0,0,0,.15);
+}
+
+
+
 /****************** Start Menu *****************/
 
 .section_menu{
     color: var(--orange-color);
     padding: 10em 0 10em;
+    background-color: rgba(21, 31, 18, 0.85);
 }
 .container_menu{
     display: flex;
@@ -213,7 +258,6 @@ header{
 .div_gallery{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 10em;
 }
 
 
@@ -224,6 +268,11 @@ header{
 }
 
 /*************** Start Menu Onglets ******************/
+
+.section_multi_menu{
+    background-color: rgba(21, 31, 18, 0.9);
+    padding: 10em 0 10em;
+}
 
 .main_div{
     margin: auto;
@@ -264,7 +313,7 @@ header{
     color: white;
     max-width: 80%;
     margin: auto;
-    margin-bottom: 10em;
+
 }
 .products_container:not(.visible){
     display: none;
@@ -281,6 +330,7 @@ header{
     object-fit: cover;
 }
 .div_product >h3{
+    margin-top: 1em;
     font-size: 18px;
     text-transform: uppercase;
 }
@@ -293,17 +343,7 @@ header{
     font-weight: 600;
 }
 
-/**************** Start Footer *********************/
 
-footer{
-    background-color: rgb(27, 26, 26);
-    color: white;
-}
-.div_footer{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2em;
-}
 
 
 
@@ -322,6 +362,7 @@ footer{
     }
     .container_info{
         width: 100%;
+        margin-top: 10em;
     }
     .container_reservation_form{
         width: 100%;
@@ -361,48 +402,6 @@ footer{
         grid-template-columns: repeat(2, 1fr);
         max-width: 100%;
     }
-    /*** Footer ***/
-    .div_footer{
-        grid-template-columns: repeat(2, 1fr);
-        padding: 1em;
-    }
-
-
-    /***** Menu burger ****/
-    #burger{
-        display: block;
-    }
-    
-    #menu-links{
-        transform: scaleY(0);
-        transform-origin: top;
-        overflow: hidden;
-        width: 100%;
-        background-color: transparent;
-        text-align: center;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        z-index: 0;
-        transition: line-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        line-height: 0;
-        padding: 0 1em;
-        opacity: 0;
-    }
-    #menu-links.slideDown{
-        transform: scaleY(1);
-        line-height: 1.5;
-        opacity: 1;
-    }
-    #menu-links a{
-        display: block;
-        margin: 0.5em 0 0.5em 0.5em;
-    }
-
-    .side-spaced{
-        padding: 1em;
-    }
-
 }
 @media (max-width: 550px){
     /*** Menu ***/
@@ -426,24 +425,14 @@ footer{
         grid-template-columns: repeat(1, 1fr);
         max-width: 90%;
     }
-    
-    /*** Footer ***/
-    .div_footer{
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 80%;
-        margin: auto;
-    }
-    .div_footer>div{
-        padding-bottom: 1em;
-    }
 }
 
 
 
 /**************** Global CSS **************/
-a{
+a:hover, a:visited, a:link, a:active
+{
     text-decoration: none;
-    color: white;
 }
 textarea {
     resize: none;
@@ -452,3 +441,6 @@ textarea {
 ul {
     list-style:none;
 }
+
+
+

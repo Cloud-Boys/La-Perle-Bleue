@@ -10,7 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -32,6 +31,29 @@ class ReservationType extends AbstractType
                     'class' => 'reserv_inputs'
                 ]
             ])
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => FALSE,
+                'format' => 'dd/MM/yyyy',
+                'attr' => [
+                    'placeholder' => "Date",
+                    'class' => 'form-control reserv_inputs cursor-text'
+                ],
+            ])
+            ->add('heure', TimeType::class, [
+                'widget' => 'single_text',
+                'html5' => FALSE,
+                'attr' => [
+                    'placeholder' => "Heure",
+                    'class' => 'form-control timepicker reserv_inputs cursor-text'
+                ]
+            ])
+            ->add('telephone',TextType::class, [
+                'attr' => [
+                    'placeholder' => "Numéro de téléphone",
+                    'class' => 'reserv_inputs'
+                ]
+            ])
             ->add('nb_adulte', IntegerType::class, [
                 'attr' => [
                     'placeholder' => "Nombre d'adulte",
@@ -48,8 +70,7 @@ class ReservationType extends AbstractType
                     'placeholder' => "Nombre d'enfant",
                     'class' => 'reserv_inputs',
                     'min' => '0',
-                    'max' => '90',
-                    'empty_data' => '0'
+                    'max' => '30',
                 ]
             ])
             ->add('nb_bebe', IntegerType::class, [
@@ -58,28 +79,9 @@ class ReservationType extends AbstractType
                     'placeholder' => "Nombre de bébe",
                     'class' => 'reserv_inputs',
                     'min' => '0',
-                    'max' => '90',
+                    'max' => '30',
                     'empty_data' => '0'
                     
-                ]
-            ])
-            ->add('date', DateType::class, [
-                'widget' => 'choice',
-                'years' => range(date('Y'), date('Y')+100),
-                'months' => range(date('m'), 12),
-                'days' => range(date('d'), 31),
-            ])
-            ->add('heure', TimeType::class, [
-                'widget' => 'single_text',
-                'attr' => [
-                    'placeholder' => "Heure",
-                    'class' => 'reserv_inputs cursor-text'
-                ]
-            ])
-            ->add('telephone',NumberType::class, [
-                'attr' => [
-                    'placeholder' => "Numéro de téléphone",
-                    'class' => 'reserv_inputs'
                 ]
             ])
             ->add('message',TextareaType::class, [

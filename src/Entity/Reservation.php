@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ReservationRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReservationRepository::class)
@@ -24,26 +26,36 @@ class Reservation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'email '{{ value }}' est incorrect."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=15)
+     * @Assert\Regex(
+     *     pattern="/^0[3-6-7][0-9]{8}$/",
+     *     message="Ce n'est pas un numéro de téléphone portable valide !"
+     * )
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero
      */
     private $nbAdulte;
 
     /**
      * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
+     * @Assert\PositiveOrZero
      */
     private $nbEnfant;
 
     /**
      * @ORM\Column(type="integer", options={"default": "0"}, nullable=true)
+     * @Assert\PositiveOrZero
      */
     private $nbBebe;
 
@@ -67,15 +79,6 @@ class Reservation
      */
     private $message;
 
-    /**
-     * @var \DateTime
-     */
-    private $defaultDate;
-
-    public function __construct()
-    {
-        $this->defaultDate = new \DateTime();
-    }
 
     public function getId(): ?int
     {
