@@ -1,3 +1,5 @@
+const div_switch = document.querySelector('.section_menu')
+
 $(function () {
 
     // ACTIVATION DU DATEPICKER 
