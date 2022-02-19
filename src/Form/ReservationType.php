@@ -22,7 +22,7 @@ class ReservationType extends AbstractType
             ->add('nom', TextType::class, [
                 'attr' => [
                     'placeholder' => "Nom",
-                    'class' => 'reserv_inputs'
+                    'class' => 'reserv_inputs required'
                 ]
             ])
             ->add('email', EmailType::class, [

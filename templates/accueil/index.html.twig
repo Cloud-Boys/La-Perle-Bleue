@@ -110,7 +110,28 @@
                                                     </div>
                                             </div>
                                         </div>
-
+                                        <div class="container">
+                                            <div class="switch">
+                                                <div class="toggle-button">
+                                                    <div class="toggle"></div>
+                                                    <div class="moon-mask"></div>
+                                                    <div class="circles-wrapper">
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                        <div class="circle"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <p>n</p>
+                                                <p>ff</p>
+                                            </div>
+                                        </div>
                                         <div class="container_input ml">
                                             <div class="container_input_icon">
                                                 <div class=" timepicker ">
@@ -218,17 +239,42 @@
                 <!-- Fin Section munti menu-->
 
         </main>
+        <div class="container">
+            <div class="switch">
+                <div class="toggle-button">
+                    <div class="toggle"></div>
+                    <div class="moon-mask"></div>
+                    <div class="circles-wrapper">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text">
+                <p>n</p>
+                <p>ff</p>
+            </div>
+        </div>
 
     {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        </script>
+        
         <!-- JavaScript Bundle with Popper -->
         <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="{{ asset('js/timepicker.js') }}"></script>
+
         <!-- Include Moment.js CDN -->
         <script src="{{ asset('js/onglets.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        
     {% endblock %}
 {% endblock %}
 
