@@ -26,6 +26,7 @@ class MenuRepository extends ServiceEntityRepository
             ->join('m.categorie', 'c')
             ->where('c.nom NOT LIKE :title')
             ->setParameter('title', '%BOISSON%')
+            ->orderBy('RAND()')
             ->setMaxResults(6)
             ->getQuery()
             ->getResult()
