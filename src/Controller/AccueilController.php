@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Menu;
+use App\Entity\Categorie;
 use App\Entity\Fermeture;
 use App\Entity\Reservation;
+use App\Entity\AccueilEcrit;
+use App\Entity\AccueilImage;
 use App\Form\ReservationType;
+use App\Repository\MenuRepository;
 use App\Repository\AlerteRepository;
 use App\Repository\FermetureRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -14,24 +19,48 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Date;
 
 class AccueilController extends AbstractController
 {
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function index(ManagerRegistry $doctrine): Response
+    public function index(ManagerRegistry $doctrine,MenuRepository $repo_menu,FermetureRepository $repo_ferm): Response
     {
-        $fermetures = $doctrine
-                    ->getRepository(Fermeture::class)
-                    ->findAll();
+        $fermetures = $repo_ferm->findMinDate();
 
+
+        $menu_images= $doctrine
+                    ->getRepository(AccueilImage::class)
+                    ->findBy(["nom" => "menu_image"]);
+        $gallery_images = $doctrine
+                    ->getRepository(AccueilImage::class)
+                    ->findBy(["nom" => "gallery_intérieur"]);
+
+        
+        $menus = $repo_menu->findRandProducts();
+
+
+        $textes = $doctrine
+                    ->getRepository(AccueilEcrit::class)
+                    ->findAll();
+ 
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
 
         return $this->render('accueil/index.html.twig', [
             'formReservation' => $form->createView(),
-            'fermetures' => $fermetures
+            'fermetures' => $fermetures,
+            'menu_images' => $menu_images,
+            'gallery_images' => $gallery_images,
+            'menus' => $menus,
+
+            'textes' => $textes
+        ]);
+
+        return $this->render('base.html.twig', [
+            'textes' => $textes
         ]);
     }
 
@@ -43,7 +72,7 @@ class AccueilController extends AbstractController
     public function Email(FermetureRepository $ferm_repo,AlerteRepository $repo,Request $request, MailerInterface $mailer): Response
     {
 
-        $dates_ferm= $ferm_repo->findAll();
+        $dates_ferm= $ferm_repo->findBY([],["debut" => "ASC"]);
         $reservation = new Reservation();
 
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -52,21 +81,23 @@ class AccueilController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             
             $date_reserv = $form->getData()->getDate();
-            echo $date_reserv->format('d-m-y')."<br>";
-
+            $message = nl2br("Les Réservation sont indisponible pour les dates suivantes : \n");
+            if($date_reserv<new Date()){
+                    $this->addFlash('error', "La Date est incorrect");
+                    return $this->redirectToRoute('accueil');        
+            }
             foreach ($dates_ferm as $date) {
                 $date_debut = $date->getDebut();
                 $date_fin = $date->getFin();
-                echo $date_debut->format('d-m-y')."<br>";
-                echo $date_fin->format('d-m-y')."<br>";
+
+                $message .= $date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y')."\n";
+                
                 if($date_reserv>=$date_debut && $date_reserv<=$date_fin){
-                    echo "ici";
-                    
-                    $this->addFlash('success', 'La date est incorrect');
+                    $this->addFlash('error', $message);
                     return $this->redirectToRoute('accueil');
                 }
             }
-           
+            
             
             
             $reservation->setCreatedAt(new \DateTime());

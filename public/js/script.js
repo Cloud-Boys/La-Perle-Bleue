@@ -9,6 +9,8 @@ $(function () {
         language: "fr",
         daysOfWeekDisabled: [1,0],
         startDate: new Date(),
+        orientation: "top",
+        autoclose: true
     });
     /*
     $('.timepicker').datetimepicker({
@@ -27,9 +29,13 @@ $(document).ready(function(){
         dynamic: false,
         dropdown: true,
         scrollbar: true,
-        zindex: 10
+        zindex: 10,
+        hoursDisabled: '15, 16, 17'
     });
 });
+
+
+
 
 
 $(document).ready(function() {

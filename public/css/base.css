@@ -75,10 +75,14 @@ footer{
 
 */
 
+.logo_uberEats{
+    width: 30px;
+}
+
 /************** Media Query *****************/
 
 
-@media screen and (max-width:767.98px) {
+@media screen and (max-width:1000px) {
     /*** Footer ***//*
     .div_footer{
         grid-template-columns: repeat(2, 1fr);

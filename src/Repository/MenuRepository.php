@@ -19,6 +19,19 @@ class MenuRepository extends ServiceEntityRepository
         parent::__construct($registry, Menu::class);
     }
 
+
+    public function findRandProducts()
+    {
+        return $this->createQueryBuilder('m')
+            ->join('m.categorie', 'c')
+            ->where('c.nom NOT LIKE :title')
+            ->setParameter('title', '%BOISSON%')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Menu[] Returns an array of Menu objects
     //  */

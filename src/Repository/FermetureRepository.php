@@ -19,6 +19,17 @@ class FermetureRepository extends ServiceEntityRepository
         parent::__construct($registry, Fermeture::class);
     }
 
+
+    public function findMinDate()
+    {
+        return $this->createQueryBuilder('f')
+            ->orderBy('f.debut', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Fermeture[] Returns an array of Fermeture objects
     //  */
