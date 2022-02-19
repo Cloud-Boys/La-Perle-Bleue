@@ -7,7 +7,7 @@
     <!-- Include Bootstrap CDN -->
     <link rel="stylesheet" href="{{ asset('css/timepicker.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
     
@@ -108,28 +108,6 @@
                                                         {{ form_widget(formReservation.date)}}
                                                         <div class="input-group-append icon"><i class="fas fa-calendar-alt white"></i></div>
                                                     </div>
-                                            </div>
-                                        </div>
-                                        <div class="container">
-                                            <div class="switch">
-                                                <div class="toggle-button">
-                                                    <div class="toggle"></div>
-                                                    <div class="moon-mask"></div>
-                                                    <div class="circles-wrapper">
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                        <div class="circle"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text">
-                                                <p>n</p>
-                                                <p>ff</p>
                                             </div>
                                         </div>
                                         <div class="container_input ml">
@@ -303,6 +281,7 @@
         <!-- Include Moment.js CDN -->
         <script src="{{ asset('js/onglets.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         
     {% endblock %}
 {% endblock %}
