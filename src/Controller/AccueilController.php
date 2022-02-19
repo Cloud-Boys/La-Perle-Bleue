@@ -78,10 +78,15 @@ class AccueilController extends AbstractController
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()) {
+
+
+            date_default_timezone_set('Europe/Paris');
+            $current_date = date('d-m-y h:i:s');
+
             
             $date_reserv = $form->getData()->getDate();
             $message = nl2br("Les Réservation sont indisponible pour les dates suivantes : \n");
-            if($date_reserv<new Date()){
+            if($date_reserv<$current_date){
                     $this->addFlash('error', "La Date est incorrect");
                     return $this->redirectToRoute('accueil');        
             }
@@ -96,9 +101,36 @@ class AccueilController extends AbstractController
                     return $this->redirectToRoute('accueil');
                 }
             }
+           
+            $heure_reserv = $form->getData()->getHeure();
+
+            if($date_reserv == $current_date ) {
+                if(strtotime($heure_reserv) <= time()){
+                    $this->addFlash('error', "L'Heure est incorrect");
+                    return $this->redirectToRoute('accueil'); 
+                }
+            }
+
+
+            $heure_ouverture = mktime(8,0,0);
+            $heure_fermeture = mktime(22,0,0);
+
+
+            $pause_debut = mktime(12,0,0);
+            $pause_fin = mktime(14,0,0);
+
+            $heure_reserv = strtotime($heure_reserv->format('H:i:s'));
             
-            
-            
+            if($heure_reserv< $heure_ouverture || $heure_reserv> $heure_fermeture ){
+                $this->addFlash('error', "L'heure indiqué ne corresponf pas à nos ouvertures");
+                return $this->redirectToRoute('accueil');
+            }
+            if($heure_reserv>$pause_debut || $heure_reserv<$pause_fin ){
+                $this->addFlash('error', "Le restaurant est fermé à midi de 12h à 14h");
+                return $this->redirectToRoute('accueil');
+            }
+
+
             $reservation->setCreatedAt(new \DateTime());
             if($form->getData()->getNbEnfant() === null){
                 $reservation->setNbEnfant(0);

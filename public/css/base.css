@@ -323,3 +323,24 @@ footer{
 	}
 
 }
+
+
+
+
+
+
+
+
+
+/**************** Global CSS **************/
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+textarea {
+    resize: none;
+}
+
+ul {
+    list-style:none;
+}
