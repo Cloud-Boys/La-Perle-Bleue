@@ -55,7 +55,6 @@ class AccueilController extends AbstractController
             'menu_images' => $menu_images,
             'gallery_images' => $gallery_images,
             'menus' => $menus,
-
             'textes' => $textes
         ]);
 
