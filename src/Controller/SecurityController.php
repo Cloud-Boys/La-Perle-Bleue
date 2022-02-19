@@ -8,6 +8,7 @@ use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,11 +29,15 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(ManagerRegistry $doctrine,Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
+
+        $textes = $doctrine
+                ->getRepository(AccueilEcrit::class)
+                ->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
@@ -61,6 +66,7 @@ class SecurityController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'textes' => $textes
         ]);
     }
 
@@ -100,18 +106,26 @@ class SecurityController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(ManagerRegistry $doctrine,AuthenticationUtils $authenticationUtils): Response
     {
          if ($this->getUser()) {
             return $this->redirectToRoute('admin');
         }
+
+        $textes = $doctrine
+                ->getRepository(AccueilEcrit::class)
+                ->findAll();
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+             'error' => $error,
+             'textes' => $textes
+        ]);
     }
 
     /**
