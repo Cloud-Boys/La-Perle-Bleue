@@ -1,11 +1,11 @@
 body{
-    background: url(../img/bg0.jpg.webp) no-repeat;
+    background: url(../img/jungle.jpg) no-repeat fixed;
     background-size: cover;
     font-family: 'Poppins', Arial, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.8;
     margin: 0;
+    text-align: left;
 }
 
 :root {
@@ -25,7 +25,8 @@ body{
 .section_bg_img{
     background: url(../img/jungle.jpg) no-repeat fixed;
     background-size: cover;
-    height: 35em;
+    height: 15em;
+    margin-top: 5em;
 }
 
 
@@ -52,7 +53,8 @@ a:hover, a:focus {
     background: #2553b8 !important;
 }
 .ftco-section {
-    padding: 7em 0;
+    background-color: rgba(21, 31, 18, 0.9);
+    padding: 5em 0 5em;
 }
 .ftco-no-pt {
     padding-top: 0;

@@ -22,7 +22,6 @@ body{
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    justify-content: center;
     background: url(../img/jungle.jpg) no-repeat fixed;
     background-size: cover;
     height: 15em;
@@ -33,7 +32,7 @@ body{
 
 .section_multi_menu{
     background-color: rgba(21, 31, 18, 0.9);
-    padding: 5em 0 15em;
+    padding: 5em 0 10em;
     
 }
 
