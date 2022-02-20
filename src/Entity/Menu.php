@@ -56,6 +56,11 @@ class Menu
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $suggestion;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTime();
@@ -162,6 +167,18 @@ class Menu
     public function setPrix($prix)
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getSuggestion(): ?bool
+    {
+        return $this->suggestion;
+    }
+
+    public function setSuggestion(bool $suggestion): self
+    {
+        $this->suggestion = $suggestion;
 
         return $this;
     }

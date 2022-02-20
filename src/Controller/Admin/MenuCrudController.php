@@ -32,6 +32,8 @@ class MenuCrudController extends AbstractCrudController
 
         $date = DateTimeField::new('updatedAt', 'Mise a jour le');
 
+        $suggestion = Field::new('suggestion');
+
         $fields = [
             TextField::new('nom'),
             TextField::new('prix'),
@@ -42,8 +44,10 @@ class MenuCrudController extends AbstractCrudController
             $fields[] = $AssociationText;
             $fields[] = $image;
             $fields[] = $date;
+            $fields[] = $suggestion;
         } else {
             $fields[] = $Association;
+            $fields[] = $suggestion;
             $fields[] = $imageFichier;
         }
 
