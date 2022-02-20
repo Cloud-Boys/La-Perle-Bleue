@@ -22,7 +22,7 @@ class AccueilImageCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        $imageFichier = TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class); 
+        $imageFichier = TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class)->setFormTypeOption('allow_delete', false); 
         $image = ImageField::new('image')->setBasePath('/img/upload');
 
         $fields = [
