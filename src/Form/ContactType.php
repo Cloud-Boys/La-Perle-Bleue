@@ -43,7 +43,7 @@ class ContactType extends AbstractType
             ])
             ->add('Valider', SubmitType::class, [
                 'attr' =>[
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-primary mt'
                 ]
             ])
         ;

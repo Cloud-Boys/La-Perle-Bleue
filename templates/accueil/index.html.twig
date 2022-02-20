@@ -25,16 +25,15 @@
                     </div>
                 {% endfor %}
                 <!-- Début Section Accueil : image et texte-->
-                
+                {% for message in app.flashes('error') %}
+                    <div class="flash_message alert alert-danger red">
+                        <p class="m">{{ message }}</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
                 <section class="section_bg_img flex column jc-center ai-center">
-                    {% for message in app.flashes('error') %}
-                        <div class="alert alert-danger red">
-                            <p>{{ message }}</p>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    {% endfor %}
                     <div class="ta-center white mb-5">
                         <h1 id="main_titre" class="police_italien shadow_contour">La Perle Bleue</h1>
                         <h2 class="shadow_contour">depuis 1998</h2>
@@ -199,7 +198,7 @@
                 <!-- Debut Section munti menu-->
                 <section class="section_multi_menu">
                         <div class="choix_multi_menu">
-                            <h2 class="police_italien shadow_contour">Nos Suggestions</h2>
+                            <h2 class="white police_italien shadow_contour">Nos Suggestions</h2>
                     </div>
                     <div class="container_menu wrapper">
                             <div class="products_container visible">

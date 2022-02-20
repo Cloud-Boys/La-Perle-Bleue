@@ -1,5 +1,5 @@
 body{
-    background: url(../img/jungle.jpg) no-repeat;
+    background: url(../img/login_bg.jpg) no-repeat;
     background-size: cover;
     font-family: sans-serif;
     font-weight: 500;
@@ -23,7 +23,7 @@ body{
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/jungle.jpg);
+    background: url(../img/login_bg.jpg);
     background-size: cover;
     height: 55em;
 }
@@ -60,7 +60,7 @@ body{
 
 /******* Form Reservation ******/ 
 .container_reservation_form{
-    background-color: #186611;
+    background-color: rgba(0,28,24,0.97);
     padding: 1.5rem;
     width: 40%;
     

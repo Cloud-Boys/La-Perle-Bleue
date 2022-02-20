@@ -45,7 +45,7 @@ header{
     padding: 0.3em 0.3em 0.2em 0.3em;
     border: 2px solid #fff;
     font-size: 1.5em;
-    min-width: 42px;
+    min-width: 52px;
     text-align: center;
     cursor: pointer;
 }
@@ -59,7 +59,19 @@ header{
 
 /***************** HEADER END **************************/
 
+.flash_message{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 80%;
+    margin-top: 20em;
+    margin-left: 10%;
+}
 
+.close{
+    width: 3em;
+    margin: 0.5em;
+}
 
 /**************** Start Footer *********************/
 /*
@@ -77,6 +89,7 @@ footer{
 
 .logo_uberEats{
     width: 30px;
+    padding-bottom: 2px;
 }
 
 /************** Media Query *****************/
@@ -194,7 +207,6 @@ footer{
 }
 
 .footer-distributed .footer-company-name{
-	color:  #222;
 	font-size: 14px;
 	font-weight: normal;
 	margin: 0;
@@ -275,7 +287,7 @@ footer{
 .footer-distributed .footer-company-about span{
 	display: block;
 	color:  #ffffff;
-	font-size: 14px;
+	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 20px;
 }

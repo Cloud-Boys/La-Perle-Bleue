@@ -10,15 +10,10 @@
 
         <main>
         <!-- Début Section Accueil : image et texte-->
-        <section class="section_bg_img flex jc-center ai-center">
-            <div class="ta-center white mb-5">
-                <h1 id="main_titre" class="shadow_contour">Login</h1>
-            </div>
-        </section>
         <!-- Fin Section Accueil-->
             
     <section class="section_login">
-
+            <h1 id="main_titre" class="shadow_contour ta-center white">Login</h1>
             <form method="post" class="login_form flex column">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>

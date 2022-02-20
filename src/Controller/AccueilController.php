@@ -85,7 +85,7 @@ class AccueilController extends AbstractController
 
             
             $date_reserv = $form->getData()->getDate();
-            $message = nl2br("Les Réservation sont indisponible pour les dates suivantes : \n");
+            $message = "Les Réservation sont indisponible pour les dates suivantes : ";
             if($date_reserv<$current_date){
                     $this->addFlash('error', "La Date est incorrect");
                     return $this->redirectToRoute('accueil');        
@@ -93,14 +93,16 @@ class AccueilController extends AbstractController
             foreach ($dates_ferm as $date) {
                 $date_debut = $date->getDebut();
                 $date_fin = $date->getFin();
-
-                $message .= $date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y')."\n";
-                
                 if($date_reserv>=$date_debut && $date_reserv<=$date_fin){
+                    foreach ($dates_ferm as $date) {
+                        $date_debut = $date->getDebut();
+                        $date_fin = $date->getFin();
+                        $message .= $date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y')." , ";
+                    }
                     $this->addFlash('error', $message);
                     return $this->redirectToRoute('accueil');
                 }
-            }
+            } 
            
             $heure_reserv = $form->getData()->getHeure();
 
@@ -194,7 +196,7 @@ class AccueilController extends AbstractController
             $this->addFlash('success', 'Votre Réservation à était faite avec succès, Vous avez reçu un récapitulatif sur votre email "'.$reservation->getEmail().'"');
             return $this->redirectToRoute('accueil');
         }else{
-            $this->addFlash('success', 'Error');
+            $this->addFlash('error', 'Vérifié les informations de votre formulaire');
             return $this->redirectToRoute('accueil');
         }
         /*

@@ -29,9 +29,10 @@ body{
 
 
 .section_login{
-    max-width: 50%;
+    width: 50em;
     margin: auto;
     padding: 10em;
+    margin-top: 10em;
 }
 
 .login_form{
@@ -213,4 +214,48 @@ textarea.form-control {
     font-size: 16px;
     font-weight: 500;
     color: #2553b8;
+}
+
+
+
+
+
+
+
+@media (max-width: 700px){
+    .section_login {
+        width: 40em;
+        padding: 5em;
+        margin-top: 15em;
+        margin-bottom: 5em;
+    }
+}
+
+@media (max-width: 700px){
+    .section_login {
+        width: 30em;
+        padding: 3em;
+        padding-bottom: 2em;
+        padding-top: 2em;
+    }
+}
+
+
+@media (max-width: 500px){
+    .section_login {
+        width: 25em;
+        padding: 1em;
+        padding-bottom: 2em;
+        padding-top: 2em;
+    }
+}
+
+
+@media (max-width: 400px){
+    .section_login {
+        width: 20em;
+        padding: 0.3em;
+        padding-bottom: 2em;
+        padding-top: 2em;
+    }
 }
