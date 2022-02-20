@@ -73,19 +73,7 @@ header{
     margin: 0.5em;
 }
 
-/**************** Start Footer *********************/
-/*
-footer{
-    background-color: #000;
-    color: white;
-}
-.div_footer{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 2em;
-}
 
-*/
 
 .logo_uberEats{
     width: 30px;
@@ -96,13 +84,6 @@ footer{
 
 
 @media screen and (max-width:1000px) {
-    /*** Footer ***//*
-    .div_footer{
-        grid-template-columns: repeat(2, 1fr);
-        padding: 1em;
-    }
-*/
-
     /***** Menu burger ****/
     #burger{
         display: block;
@@ -139,19 +120,6 @@ footer{
     }
 
 }
-@media (max-width: 550px){  
-    /*** Footer ***/
-    /*
-    .div_footer{
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 80%;
-        margin: auto;
-    }
-    .div_footer>div{
-        padding-bottom: 1em;
-    }*/
-}
-
 
 
 

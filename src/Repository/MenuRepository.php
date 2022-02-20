@@ -25,6 +25,7 @@ class MenuRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('m')
             ->join('m.categorie', 'c')
             ->where('c.nom NOT LIKE :title')
+            ->andWhere('m.suggestion = 1')
             ->setParameter('title', '%BOISSON%')
             ->orderBy('RAND()')
             ->setMaxResults(6)
