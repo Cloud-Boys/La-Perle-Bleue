@@ -19,7 +19,7 @@ class AccueilEcritCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('nom'),
+            TextField::new('nom')->setFormTypeOption('disabled','disabled'),
             TextField::new('texte'),
         ];
     }

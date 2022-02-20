@@ -26,7 +26,7 @@ class AccueilImageCrudController extends AbstractCrudController
         $image = ImageField::new('image')->setBasePath('/img/upload');
 
         $fields = [
-            TextField::new('nom'),
+            TextField::new('nom')->setFormTypeOption('disabled','disabled'),
         ];
 
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
