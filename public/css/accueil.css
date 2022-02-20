@@ -28,6 +28,10 @@ body{
     height: 55em;
 }
 
+#main_titre{
+    font-size: 5em;
+}
+
 /********************  Reservation form ****************/ 
 
 .section_reservation{
@@ -364,6 +368,7 @@ thead tr:nth-child(3) th {
 /***** Product ********/
 
 .choix_multi_menu{
+    color: var(--orange-color);
     display: flex;
     justify-content: center;
     margin-bottom: 1.5em;

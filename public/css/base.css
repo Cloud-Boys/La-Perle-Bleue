@@ -143,13 +143,13 @@ footer{
 
 
 .footer-distributed{
-	background: #222;
+    background: black;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: bold 16px sans-serif;
-	padding: 55px 50px;
+	padding: 2em 50px;
 }
 
 .footer-distributed .footer-left,
