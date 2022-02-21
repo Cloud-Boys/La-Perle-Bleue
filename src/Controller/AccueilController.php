@@ -132,7 +132,7 @@ class AccueilController extends AbstractController
             $heure_reserv = strtotime($heure_reserv->format('H:i:s'));
             
             if($heure_reserv< $heure_ouverture || $heure_reserv> $heure_fermeture ){
-                $this->addFlash('error', "L'heure indiqué ne correspond pas à nos ouvertures");
+                $this->addFlash('error', "L'heure indiqué ne correspond pas à nos horaires");
                 return $this->redirectToRoute('accueil');
             }
             if($heure_reserv>$pause_debut && $heure_reserv<$pause_fin ){
@@ -168,7 +168,8 @@ class AccueilController extends AbstractController
                     'telephone' => $reservation->getTelephone(),
                     'nbAdulte' => $reservation->getNbAdulte(),
                     'nbEnfant' => $reservation->getNbEnfant(),
-                    'nbBebe' => $reservation->getNbBebe()
+                    'nbBebe' => $reservation->getNbBebe(),
+                    'message' => $reservation->getMessage(),
                 ]);
             $mailer->send($email_client);
 
@@ -201,7 +202,8 @@ class AccueilController extends AbstractController
                     'telephone' => $reservation->getTelephone(),
                     'nbAdulte' => $reservation->getNbAdulte(),
                     'nbEnfant' => $reservation->getNbEnfant(),
-                    'nbBebe' => $reservation->getNbBebe()
+                    'nbBebe' => $reservation->getNbBebe(),
+                    'message' => $reservation->getMessage()
                 ]);
             $mailer->send($email_employer);
             
