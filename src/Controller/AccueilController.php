@@ -113,7 +113,6 @@ class AccueilController extends AbstractController
                 }
             }
 
-
             $heure_ouverture = mktime(8,0,0);
             $heure_fermeture = mktime(22,0,0);
 
@@ -131,7 +130,6 @@ class AccueilController extends AbstractController
                 $this->addFlash('error', "Le restaurant est fermé à midi de 12h à 14h");
                 return $this->redirectToRoute('accueil');
             }
-
 
             $reservation->setCreatedAt(new \DateTime());
             if($form->getData()->getNbEnfant() === null){
@@ -178,7 +176,7 @@ class AccueilController extends AbstractController
             $email_employer = (new TemplatedEmail())
                 ->from('PerleBleue@gmail.com')
                 ->to('PerleBleue@gmail.com')
-                ->cc($alerts)
+                ->cc("PerleBleue@gmail.com",$alerts)
                 ->subject('Nouvelle réservation')
                 ->htmlTemplate('email/alert_reservation.html.twig')
                 ->context([

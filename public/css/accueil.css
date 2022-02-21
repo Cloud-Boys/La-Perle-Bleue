@@ -1,5 +1,5 @@
 body{
-    background: url(../img/login_bg.jpg) no-repeat;
+    background: url(../img/bg/bg0.jpg) no-repeat;
     background-size: cover;
     font-family: sans-serif;
     font-weight: 500;
@@ -23,7 +23,7 @@ body{
 
 /****************** HOME PICTURE DIV   *********/
 .section_bg_img{
-    background: url(../img/login_bg.jpg);
+    background: url(../img/bg/bg0.jpg);
     background-size: cover;
     height: 55em;
 }

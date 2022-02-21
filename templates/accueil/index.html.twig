@@ -16,8 +16,8 @@
 
         <main>
                 {% for message in app.flashes('success') %}
-                    <div class="alert alert-success">
-                        {{ message }}
+                    <div class="flash_message alert alert-success">
+                        <p class="m">{{ message }}</p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
