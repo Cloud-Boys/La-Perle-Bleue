@@ -97,7 +97,7 @@ class AccueilController extends AbstractController
                     foreach ($dates_ferm as $date) {
                         $date_debut = $date->getDebut();
                         $date_fin = $date->getFin();
-                        $message .= $date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y')." , ";
+                        $message .= "<br>".$date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y');
                     }
                     $this->addFlash('error', $message);
                     return $this->redirectToRoute('accueil');
@@ -112,6 +112,7 @@ class AccueilController extends AbstractController
                     return $this->redirectToRoute('accueil'); 
                 }
             }
+
 
             $heure_ouverture = mktime(8,0,0);
             $heure_fermeture = mktime(22,0,0);
@@ -130,6 +131,7 @@ class AccueilController extends AbstractController
                 $this->addFlash('error', "Le restaurant est fermé à midi de 12h à 14h");
                 return $this->redirectToRoute('accueil');
             }
+
 
             $reservation->setCreatedAt(new \DateTime());
             if($form->getData()->getNbEnfant() === null){
@@ -176,7 +178,7 @@ class AccueilController extends AbstractController
             $email_employer = (new TemplatedEmail())
                 ->from('PerleBleue@gmail.com')
                 ->to('PerleBleue@gmail.com')
-                ->cc("PerleBleue@gmail.com",$alerts)
+                ->cc($alerts)
                 ->subject('Nouvelle réservation')
                 ->htmlTemplate('email/alert_reservation.html.twig')
                 ->context([
