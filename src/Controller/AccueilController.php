@@ -81,9 +81,11 @@ class AccueilController extends AbstractController
 
 
             date_default_timezone_set('Europe/Paris');
-            $current_date = date('d-m-y h:i:s');
+            $current_date = date('d-m-y');
 
             
+
+
             $date_reserv = $form->getData()->getDate();
             $message = "Les Réservation sont indisponible pour les dates suivantes : ";
             if($date_reserv<$current_date){
@@ -97,13 +99,20 @@ class AccueilController extends AbstractController
                     foreach ($dates_ferm as $date) {
                         $date_debut = $date->getDebut();
                         $date_fin = $date->getFin();
-                        $message .= "<br>".$date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y');
+                         
+                        $date1 = strtotime($date_debut->format('d-m-y'));
+                        $date2 = strtotime($current_date);
+                        if($date1>=$date2){
+                            $message .= "<br>".$date_debut->format('d-m-y')." Au ".$date_fin->format('d-m-y');
+                        }
+                        
                     }
                     $this->addFlash('error', $message);
                     return $this->redirectToRoute('accueil');
                 }
             } 
-           
+
+
             $heure_reserv = $form->getData()->getHeure();
 
             if($date_reserv == $current_date ) {
@@ -112,7 +121,6 @@ class AccueilController extends AbstractController
                     return $this->redirectToRoute('accueil'); 
                 }
             }
-
 
             $heure_ouverture = mktime(8,0,0);
             $heure_fermeture = mktime(22,0,0);
@@ -124,11 +132,11 @@ class AccueilController extends AbstractController
             $heure_reserv = strtotime($heure_reserv->format('H:i:s'));
             
             if($heure_reserv< $heure_ouverture || $heure_reserv> $heure_fermeture ){
-                $this->addFlash('error', "L'heure indiqué ne corresponf pas à nos ouvertures");
+                $this->addFlash('error', "L'heure indiqué ne correspond pas à nos ouvertures");
                 return $this->redirectToRoute('accueil');
             }
             if($heure_reserv>$pause_debut && $heure_reserv<$pause_fin ){
-                $this->addFlash('error', "Le restaurant est fermé à midi de 12h à 14h");
+                $this->addFlash('error', "Le restaurant est fermé de 15h à 18h");
                 return $this->redirectToRoute('accueil');
             }
 
@@ -167,19 +175,23 @@ class AccueilController extends AbstractController
 
             
             $emails= $repo->findEmailAllAlerte();
-            $alerts = '';
+            $alerts = 'PerleBleue@gmail.com';
             foreach($emails as $email){
-                $alerts .= $email['email'].',';
+                $alerts .= ','.$email['email'];
             }
-            $alerts= mb_substr($alerts, 0, -1);
 
             
-           
+
+            setlocale(LC_ALL, 'fr_FR','French');
+            $date_reserv = $reservation->getDate()->format('d F Y');
+            $date_reserv = utf8_encode(strftime("%A %d %B %Y", strtotime($date_reserv)));
+
+
             $email_employer = (new TemplatedEmail())
                 ->from('PerleBleue@gmail.com')
                 ->to('PerleBleue@gmail.com')
                 ->cc($alerts)
-                ->subject('Nouvelle réservation')
+                ->subject('Nouvelle réservation de '.$reservation->getNom()." pour le $date_reserv")
                 ->htmlTemplate('email/alert_reservation.html.twig')
                 ->context([
                     'nom' => $reservation->getNom(),
