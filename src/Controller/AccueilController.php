@@ -118,8 +118,8 @@ class AccueilController extends AbstractController
             $heure_fermeture = mktime(22,0,0);
 
 
-            $pause_debut = mktime(12,0,0);
-            $pause_fin = mktime(14,0,0);
+            $pause_debut = mktime(15,0,0);
+            $pause_fin = mktime(18,0,0);
 
             $heure_reserv = strtotime($heure_reserv->format('H:i:s'));
             
@@ -127,7 +127,7 @@ class AccueilController extends AbstractController
                 $this->addFlash('error', "L'heure indiqué ne corresponf pas à nos ouvertures");
                 return $this->redirectToRoute('accueil');
             }
-            if($heure_reserv>$pause_debut || $heure_reserv<$pause_fin ){
+            if($heure_reserv>$pause_debut && $heure_reserv<$pause_fin ){
                 $this->addFlash('error', "Le restaurant est fermé à midi de 12h à 14h");
                 return $this->redirectToRoute('accueil');
             }
