@@ -11,7 +11,7 @@
                 <!-- Début Section Accueil : image et texte-->
                 <section class="section_bg_img flex jc-center ai-center">
                     <div class="ta-center white mb-5">
-                        <h1 id="main_titre" class="shadow_contour">Menu</h1>
+                        <h1 id="main_titre" class="shadow_contour"><Strong>Menu</Strong></h1>
                     </div>
                 </section>
                 <!-- Fin Section Accueil-->
@@ -22,12 +22,12 @@
 
                         {% if cat.id == 1 %}
 
-                            <div class="onglet active" data-num="{{ cat.id }}"><p class="m-0">{{cat.nom}}</p>
+                            <div class="onglet active" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
                             </div>
                         
                         {% else %}
                         
-                            <div class="onglet" data-num="{{ cat.id }}"><p class="m-0">{{cat.nom}}</p>
+                            <div class="onglet" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
                             </div>
 
                         {% endif %}
@@ -54,10 +54,10 @@
                         {% if menu.categorie.id == cat.id %}
                      
                                     <div class="div_product">
-                                        <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="">
-                                        <h3>{{menu.nom}}</h3>
-                                        <p class="product_descrip">{{menu.description}}</p>
-                                        <p class="prix">{{menu.prix}} €</p>
+                                        <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="{{menu.nom}}">
+                                        <h3><Strong>{{menu.nom}}</Strong></h3>
+                                        <p class="product_descrip"><Strong>{{menu.description}}</Strong></p>
+                                        <p class="prix"><Strong>{{menu.prix}} €</Strong></p>
                                     </div>
                         {% endif %}
 

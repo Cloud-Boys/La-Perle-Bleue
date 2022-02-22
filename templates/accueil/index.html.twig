@@ -34,8 +34,8 @@
                 {% endfor %}
                 <section class="section_bg_img flex column jc-center ai-center">
                     <div class="ta-center white mb-5">
-                        <h1 id="main_titre" class="police_italien shadow_contour">La Perle Bleue</h1>
-                        <h2 class="shadow_contour">depuis 1998</h2>
+                        <h1 id="main_titre" class="police_italien shadow_contour"><Strong>La Perle Bleue</Strong> </h1>
+                        <h2 class="shadow_contour"><Strong>depuis 1998</Strong></h2>
                     </div>
                 </section>
                 <!-- Fin Section Accueil-->
@@ -51,22 +51,22 @@
                                     <div class="info f-1">
                                         {% for text in textes %}
                                             {% if text.nom == 'telephone' %}
-                                                <h4 class="fs-18"><i class="fas fa-phone-alt mr cyan"></i>{{text.texte}}</h4>
+                                                <h3 class="fs-18"><i class="fas fa-phone-alt mr cyan"></i><Strong>{{text.texte}}</Strong></h3>
                                             {% endif %}
                                         {% endfor %}
                                     </div>
                                     <div class="info f-1">
-                                        <h4 class="fs-18"><i class="fas fa-map-marker-alt mr cyan"></i>1 Rue du Hoelzel</h4>
-                                        <p class="gray m-0">67400 Illkirch-Graffenstaden</p>
+                                        <h3 class="fs-18"><i class="fas fa-map-marker-alt mr cyan"></i><Strong>1 Rue du Hoelzel</Strong></h3>
+                                        <p class="gray m-0"><Strong>67400 Illkirch-Graffenstaden</Strong></p>
                                     </div>
                                     <div class="info f-1-5">
-                                        <h4 class="fs-18"><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h4>
+                                        <h3 class="fs-18"><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h3>
                                         <a class="pl" href="#" onclick="confirmDelete()">Nos Horaires</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="container_reservation_form">
-                                <h3 class="white">Réserver une Table</h3>
+                                <h3 class="white"><Strong>Réserver une Table</Strong></h3>
                                 {{ form_start(formReservation, {'action': path('Email'), 'attr' : { 'class': 'reservation_form','autocomplete' : 'off'} }) }}
                                         {% for ferme in fermetures %}
                                             <p class="red">Les Réservations sont indisponible du : {{ferme.debut|date("d/m/Y")}} au {{ferme.fin|date("d/m/Y")}}</p>
@@ -107,14 +107,12 @@
 
                                         <div class="container_input">
                                             <div class="container_input_icon">
-                                                <!-- <div class="icon"><i class="fas fa-calendar-day"></i></div> -->
                                                 {{ form_widget(formReservation.nb_adulte)}}    
                                             </div>
                                         </div>
 
                                         <div class="container_input ml">
                                             <div class="container_input_icon">
-                                                <!-- <div class="icon"><i class="fas fa-clock"></i></div> -->
                                                 {{ form_widget(formReservation.nb_enfant)}}
                                             </div>
                                         </div>
@@ -143,20 +141,20 @@
                     <div class="container_menu wrapper">
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
-                            <h2 class="police_italien">Notre Menu</h2>
+                            <h2 class="police_italien"><Strong>Notre Menu</Strong></h2>
                             {% for text in textes %}
                                 {% if text.nom == 'texteMenu' %}
                                     <p class="text_menu">{{text.texte}}</p>
                                 {% endif %}
                             {% endfor %}
-                            <a class="button_menu" href="menu">Voir le menu</a>
+                            <a class="button_menu" href="menu">Voir le <Strong>menu</Strong></a>
                         </div>
                         <!-- Coté droit de la boxe Menu avec les images-->
                         <div id="right_side_menu" class="f-1">
                             <!-- Les images du Menu -->
                             {% for img in menu_images %}
                                 <div class="p">
-                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="">
+                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="Menu perle bleue plat">
                                 </div>
                             {% endfor %}
                         </div>
@@ -169,7 +167,7 @@
                     <div class="div_gallery">
                         {% for img in gallery_images %}
                             <div>
-                                <img class="img_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="">
+                                <img class="img_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="gallery perle bleue restaurant">
                             </div>
                         {% endfor %}
                     </div>
@@ -179,14 +177,14 @@
                 <!-- Debut Section munti menu-->
                 <section class="section_multi_menu">
                         <div class="choix_multi_menu">
-                            <h2 class="white police_italien shadow_contour">Nos Suggestions</h2>
+                            <h2 class="white police_italien shadow_contour"><Strong>Nos Suggestions</Strong></h2>
                     </div>
                     <div class="container_menu wrapper">
                             <div class="products_container visible">
                                 {% for menu in menus %}                               
                                     <div class="div_product">
-                                        <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="">
-                                        <h3>{{menu.nom}}</h3>
+                                        <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="{{menu.nom}}">
+                                        <h3><Strong>{{menu.nom}}</Strong></h3>
                                         <p class="product_descrip">{{menu.description}}</p>
                                         <p class="prix">{{menu.prix}} €</p>
                                     </div>                         
@@ -198,7 +196,7 @@
 
                 <div id="modal">
                     <div id="modal-actions">
-                        <h2>Nos Horaires d'ouverture</h2>
+                        <h2>Nos <Strong>Horaires d'ouverture</Strong></h2>
                         <a id="modal-actions__cancel" class="close_horaire" href="#"></a>
                     </div>
                     <table class="horaire_table" cellspacing="0" cellpadding="0">
