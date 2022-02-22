@@ -61,25 +61,7 @@
                                     </div>
                                     <div class="info f-1-5">
                                         <h4 class="fs-18"><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h4>
-                                        <!--- 
-                                        <table style="width:100%" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                            <th>Mardi Jeudi</th>
-                                            <td>10h - 14h30 <br> 18h - 22h</td>
-                                            </tr>
-                                            <tr>
-                                            <th>Vendredi</th>
-                                            <td>10h - 14h30 <br> 18h - 23h</td>
-                                            </tr>
-                                            <tr>
-                                            <th>Samedi</th>
-                                            <td>10h30 - 23h30</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Dimanche</th>
-                                                <td>10h30 - 22h30</td>
-                                            </tr>
-                                        </table>-->
+                                        <a class="pl" href="#" onclick="confirmDelete()">Nos Horaires</a>
                                     </div>
                                 </div>
                             </div>
@@ -214,6 +196,43 @@
                 </section>
                 <!-- Fin Section munti menu-->
 
+                <div id="modal">
+                    <div id="modal-actions">
+                        <h2>Nos Horaires d'ouverture</h2>
+                        <a id="modal-actions__cancel" class="close_horaire" href="#"></a>
+                    </div>
+                    <table class="horaire_table" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th>Lundi</th>
+                            <td>Fermé</td>
+                        </tr>
+                        <tr>
+                            <th>Mardi</th>
+                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                        </tr>
+                        <tr>
+                            <th>Mercredi</th>
+                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                        </tr>
+                        <tr>
+                            <th>Jeudi</th>
+                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                        </tr>
+                        <tr>
+                            <th>Vendredi</th>
+                            <td>11h30 - 14h30 <br> 18h - 23h</td>
+                        </tr>
+                        <tr>
+                            <th>Samedi</th>
+                            <td>10h30 - 23h30</td>
+                        </tr>
+                        <tr>
+                            <th>Dimanche</th>
+                            <td>10h30 - 22h30</td>
+                        </tr>
+                    </table>
+                </div>
+
         </main>
 
     {% block javascripts %}
@@ -226,7 +245,9 @@
 
         <!-- Include Moment.js CDN -->
         <script src="{{ asset('js/onglets.js') }}"></script>
+        <script src="{{ asset('js/tableau-horaires.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+
         
     {% endblock %}
 {% endblock %}

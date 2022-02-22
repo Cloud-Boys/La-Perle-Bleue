@@ -58,6 +58,83 @@ body{
     padding: 0.5em;
 }
 
+#modal{
+    display: none;
+    position: fixed;
+    width: 50vw;
+    top: 25vh;
+    left: 25vw;
+    background-color: black;
+    color: #fff;
+    padding: 2em;
+    box-shadow: 0 0 100px #000;
+    border-radius: 10%;
+    z-index: 3;
+}
+#modal-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.close_horaire {
+    overflow: hidden;
+    position: relative;
+    border: none;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font: inherit;
+    text-indent: 100%;
+    cursor: pointer;
+}
+.close_horaire:focus {
+    outline: solid 0 transparent;
+    box-shadow: 0 0 0 2px white;
+}
+.close_horaire:hover {
+    background: rgba(24, 214, 87, 0.1);
+}
+.close_horaire:before, .close_horaire:after {
+    position: absolute;
+    top: 15%;
+    left: calc(50% - .0625em);
+    width: 0.125em;
+    height: 70%;
+    border-radius: 0.125em;
+    transform: rotate(45deg);
+    background: white;
+    content: '';
+}
+.close_horaire:after {
+    transform: rotate(-45deg);
+}
+
+
+
+.horaire_table{
+    border-collapse: collapse;
+    width:100%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+.horaire_table td, .horaire_table th {
+border: 2px solid #ddd;
+padding: 8px;
+text-align: center;
+}
+
+
+.horaire_table th {
+padding-top: 12px;
+padding-bottom: 12px;
+}
+
+
 /******* Form Reservation ******/ 
 .container_reservation_form{
     background-color: rgba(0,28,24,0.97);
@@ -418,6 +495,10 @@ thead tr:nth-child(3) th {
 
 /************** Media Query *****************/
 @media (max-width: 1200px){
+    #modal{
+        width: 75vw;
+        left: 15vw;
+    }
     /*** Menu ***/
     .img_menu_gallery{
         height: 20rem;
@@ -446,6 +527,10 @@ thead tr:nth-child(3) th {
 
 
 @media screen and (max-width:767.98px) {
+    #modal{
+        width: 85vw;
+        left: 10vw;
+    }
 
     /*** Menu ***/
     .container_info>div{
@@ -471,6 +556,10 @@ thead tr:nth-child(3) th {
     }
 }
 @media (max-width: 550px){
+    #modal{
+        width: 95vw;
+        left: 0vw;
+    }
     /*** Menu ***/
     #right_side_menu{
         grid-template-columns: repeat(1, 1fr);
