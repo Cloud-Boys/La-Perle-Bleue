@@ -107,6 +107,7 @@ header{
         opacity: 0;
     }
     #menu-links.slideDown{
+        background-color: rgba(0, 0, 0, 0.60);
         transform: scaleY(1);
         line-height: 1.5;
         opacity: 1;

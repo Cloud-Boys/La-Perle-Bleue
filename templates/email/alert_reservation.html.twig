@@ -59,7 +59,9 @@ body{
 <p>Une réservation pour le {{ date|date("d/m/Y") }} à {{ heure|date('H:i') }}.</p>
 <p>Au nom de {{ nom }}</p>
 <p>Pour {{ nbAdulte }} Adulte(s), {{ nbEnfant }} Enfant(s) et {{ nbBebe }} Bébé(s).</p>
+{% if message != null %}
 <p>Message: "{{ message }}"</p>
+{% endif %}
 <p>Téléphone : {{ telephone }}</p>
 <p>Email : {{ mail }}</p>
 
