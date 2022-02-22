@@ -23,6 +23,8 @@ class FermetureRepository extends ServiceEntityRepository
     public function findMinDate()
     {
         return $this->createQueryBuilder('f')
+            ->where('f.debut >= :today')
+            ->setParameter('today', new \DateTime())
             ->orderBy('f.debut', 'ASC')
             ->setMaxResults(1)
             ->getQuery()

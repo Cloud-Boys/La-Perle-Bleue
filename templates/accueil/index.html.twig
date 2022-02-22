@@ -34,7 +34,7 @@
                 {% endfor %}
                 <section class="section_bg_img flex column jc-center ai-center">
                     <div class="ta-center white mb-5">
-                        <h1 id="main_titre" class="police_italien shadow_contour"><Strong>La Perle Bleue</Strong> </h1>
+                        <h1 id="main_titre" class="police_italien shadow_contour"><Strong class="font-weight-normal">La Perle Bleue</Strong> </h1>
                         <h2 class="shadow_contour"><Strong>depuis 1998</Strong></h2>
                     </div>
                 </section>
@@ -42,7 +42,7 @@
             
                 <!-- Debut Section Reservation-->
                 
-                <section class="section_reservation">
+                <section id="reservation" class="section_reservation">
                     <div class="reservation_div">
                         <div class="reservation_flex">
                             
@@ -51,17 +51,17 @@
                                     <div class="info f-1">
                                         {% for text in textes %}
                                             {% if text.nom == 'telephone' %}
-                                                <h3 class="fs-18"><i class="fas fa-phone-alt mr cyan"></i><Strong>{{text.texte}}</Strong></h3>
+                                                <h3 class="fs-18"><i class="fas fa-phone-alt mr-1 cyan"></i><Strong>{{text.texte}}</Strong></h3>
                                             {% endif %}
                                         {% endfor %}
                                     </div>
                                     <div class="info f-1">
-                                        <h3 class="fs-18"><i class="fas fa-map-marker-alt mr cyan"></i><Strong>1 Rue du Hoelzel</Strong></h3>
+                                        <h3 class="fs-18"><i class="fas fa-map-marker-alt mr-1 cyan"></i><Strong>1 Rue du Hoelzel</Strong></h3>
                                         <p class="gray m-0"><Strong>67400 Illkirch-Graffenstaden</Strong></p>
                                     </div>
                                     <div class="info f-1-5">
-                                        <h3 class="fs-18"><i class="far fa-clock mr cyan"></i>Ouvert du Mardi - Dimanche</h3>
-                                        <a class="pl" href="#" onclick="confirmDelete()">Nos Horaires</a>
+                                        <h3 class="fs-18"><i class="far fa-clock cyan mr-1"></i>Ouvert du Mardi - Dimanche</h3>
+                                        <p class="gray">Nos Horaires <a href="#" onclick="confirmDelete()">ici</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                 <!-- Debut Section munti menu-->
                 <section class="section_multi_menu">
                         <div class="choix_multi_menu">
-                            <h2 class="white police_italien shadow_contour"><Strong>Nos Suggestions</Strong></h2>
+                            <h2 class="white police_italien shadow_contour ta-center"><Strong>Nos Suggestions</Strong></h2>
                     </div>
                     <div class="container_menu wrapper">
                             <div class="products_container visible">
@@ -197,7 +197,7 @@
                 <div id="modal">
                     <div id="modal-actions">
                         <h2>Nos <Strong>Horaires d'ouverture</Strong></h2>
-                        <a id="modal-actions__cancel" class="close_horaire" href="#"></a>
+                        <a id="modal-actions__cancel" class="close_horaire" href="#reservation"></a>
                     </div>
                     <table class="horaire_table" cellspacing="0" cellpadding="0">
                         <tr>
@@ -206,19 +206,19 @@
                         </tr>
                         <tr>
                             <th>Mardi</th>
-                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                            <td>11h30 - 14h30 <br> 18h00 - 22h00</td>
                         </tr>
                         <tr>
                             <th>Mercredi</th>
-                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                            <td>11h30 - 14h30 <br> 18h00 - 22h00</td>
                         </tr>
                         <tr>
                             <th>Jeudi</th>
-                            <td>11h30 - 14h30 <br> 18h - 22h</td>
+                            <td>11h30 - 14h30 <br> 18h00 - 22h00</td>
                         </tr>
                         <tr>
                             <th>Vendredi</th>
-                            <td>11h30 - 14h30 <br> 18h - 23h</td>
+                            <td>11h30 - 14h30 <br> 18h00 - 23h00</td>
                         </tr>
                         <tr>
                             <th>Samedi</th>
