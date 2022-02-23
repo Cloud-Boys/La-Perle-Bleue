@@ -37,6 +37,9 @@
 .bleu{
     color: #1651bd;
 }
+.vert{
+    color: #0a7a00;
+}
 /********** Flex **************/
 .flex{
     display: flex;
