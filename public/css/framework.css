@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarala:wght@700&display=swap');
 /*********** Police ********************/
 
 .police_italien{
@@ -10,7 +10,7 @@
 
 
 .police_logo{
-    font-family: 'Lexend Mega', sans-serif;
+    font-family: 'Sarala', sans-serif;
     font-size: 30px;
     margin: 0;
     color: white;

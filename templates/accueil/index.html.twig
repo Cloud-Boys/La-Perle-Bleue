@@ -34,8 +34,10 @@
                 {% endfor %}
                 <section class="section_bg_img flex column jc-center ai-center">
                     <div class="ta-center white mb-5">
+                        <img id= "logo" src="\img\bg\La Perle Bleue Logo - noir.png" alt="Logo du restaurant La Perle Bleue">
+                        <!--
                         <h1 id="main_titre" class="police_italien shadow_contour"><Strong class="font-weight-normal">La Perle Bleue</Strong> </h1>
-                        <h2 class="shadow_contour"><Strong>depuis 1998</Strong></h2>
+                        <h2 class="shadow_contour"><Strong>depuis 1998</Strong></h2>-->
                     </div>
                 </section>
                 <!-- Fin Section Accueil-->
@@ -141,7 +143,7 @@
                     <div class="container_menu wrapper">
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
-                            <h2 class="police_italien"><Strong>Notre Menu</Strong></h2>
+                            <h2 class="police_italien white"><Strong>Notre Menu</Strong></h2>
                             {% for text in textes %}
                                 {% if text.nom == 'texteMenu' %}
                                     <p class="text_menu">{{text.texte}}</p>
