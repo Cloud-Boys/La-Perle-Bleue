@@ -35,9 +35,6 @@
                 <section class="section_bg_img flex column jc-center ai-center">
                     <div class="ta-center white mb-5">
                         <img id= "logo" src="\img\bg\La Perle Bleue Logo - noir.png" alt="Logo du restaurant La Perle Bleue">
-                        <!--
-                        <h1 id="main_titre" class="police_italien shadow_contour"><Strong class="font-weight-normal">La Perle Bleue</Strong> </h1>
-                        <h2 class="shadow_contour"><Strong>depuis 1998</Strong></h2>-->
                     </div>
                 </section>
                 <!-- Fin Section Accueil-->
@@ -47,26 +44,33 @@
                 <section id="reservation" class="section_reservation">
                     <div class="reservation_div">
                         <div class="reservation_flex">
-                            
-                            <div class="container_info">
-                                <div class="flex wrap white">  
-                                    <div class="info f-1">
-                                        {% for text in textes %}
-                                            {% if text.nom == 'telephone' %}
-                                                <h3 class="fs-18"><i class="fas fa-phone-alt mr-1 vert"></i><Strong>{{text.texte}}</Strong></h3>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </div>
-                                    <div class="info f-1">
-                                        <h3 class="fs-18"><i class="fas fa-map-marker-alt mr-1 vert"></i><Strong>1 Rue du Hoelzel</Strong></h3>
-                                        <p class="gray m-0"><Strong>67400 Illkirch-Graffenstaden</Strong></p>
-                                    </div>
-                                    <div class="info f-1-5">
-                                        <h3 class="fs-18"><i class="far fa-clock mr-1 vert "></i>Ouvert du Mardi - Dimanche</h3>
-                                        <p class="gray">Nos Horaires <a href="#" onclick="confirmDelete()">ici</a></p>
+                            <div class="left_side_reservation">
+                                <div>
+                                    <p class="text-perle-bleue">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dignissimos reprehenderit dolore blanditiis. eligendi magnam odio voluptate molestias earum laudantium culpa consequatur porro provident.
+                                    </p>
+                                </div>
+                                <div class="container_info">
+                                    <div class="flex wrap white">  
+                                        <div class="info f-1">
+                                            {% for text in textes %}
+                                                {% if text.nom == 'telephone' %}
+                                                    <h3 class="fs-18"><i class="fas fa-phone-alt mr-1 vert"></i><Strong>{{text.texte}}</Strong></h3>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <div class="info f-1">
+                                            <h3 class="fs-18"><i class="fas fa-map-marker-alt mr-1 vert"></i><Strong>1 Rue du Hoelzel</Strong></h3>
+                                            <p class="gray m-0"><Strong>67400 Illkirch-Graffenstaden</Strong></p>
+                                        </div>
+                                        <div class="info f-1-5">
+                                            <h3 class="fs-18"><i class="far fa-clock mr-1 vert "></i>Ouvert du Mardi - Dimanche</h3>
+                                            <p class="gray ta-center">Nos Horaires <a href="#" onclick="confirmDelete()">ici</a></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="container_reservation_form">
                                 <h3 class="white"><Strong>Réserver une Table</Strong></h3>
                                 {{ form_start(formReservation, {'action': path('Email'), 'attr' : { 'class': 'reservation_form','autocomplete' : 'off'} }) }}

@@ -1,5 +1,5 @@
 body{
-    background: url(../img/bg.jpeg) no-repeat fixed;
+    background: url(../img/bg/bg.jpeg) no-repeat fixed;
     background-size: cover;
     font-family: 'Poppins', Arial, sans-serif;
     font-weight: 500;
@@ -60,7 +60,7 @@ a:hover, a:focus {
 }
 
 .bg-primary {
-    background: #2553b8 !important;
+    background: #186611 !important;
 }
 .ftco-section {
     padding: 7em 0;
@@ -110,7 +110,7 @@ a:hover, a:focus {
     color: rgba(0, 0, 0, .3) !important;
 }
 .form-control:focus, .form-control:active {
-    border-color: #2553b8 !important;
+    border-color: #186611 !important;
 }
 textarea.form-control {
     height: inherit !important;
@@ -134,13 +134,13 @@ textarea.form-control {
     color: black;
 }
 .dbox p a {
-    color: #2553b8;
+    color: #186611;
 }
 .dbox .icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #2553b8;
+    background: #186611;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -165,8 +165,8 @@ textarea.form-control {
     margin-bottom: 20px;
 }
 .btn.btn-primary {
-    background: #2553b8 !important;
-    border-color: #2553b8 !important;
+    background: #186611 !important;
+    border-color: #186611 !important;
     color: white;
 }
 .btn.btn-primary:hover, .btn.btn-primary:focus {
@@ -213,7 +213,7 @@ textarea.form-control {
     display: none;
     font-size: 16px;
     font-weight: 500;
-    color: #2553b8;
+    color: #186611;
 }
 
 
