@@ -58,6 +58,8 @@ body{
     padding: 2em;
     color: white;
     font-size: 18px;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.60);
 }
 
 .container_info{
@@ -133,6 +135,7 @@ body{
     width:100%;
     margin: auto;
     margin-top: 1em;
+    table-layout: fixed;
 }
 
 .horaire_table td, .horaire_table th {
@@ -386,6 +389,9 @@ thead tr:nth-child(3) th {
     padding: 1em 2em 1em 2em;
     font-weight: bold;
 }
+.button_menu>strong{
+    font-weight: bold;
+}
 
 .button_menu:hover{
     color: #186611;
@@ -512,8 +518,8 @@ thead tr:nth-child(3) th {
 /************** Media Query *****************/
 @media (max-width: 1200px){
     #modal{
-        width: 75vw;
-        left: 15vw;
+        width: 80vw;
+        left: 10vw;
     }
     /*** Menu ***/
     .img_menu_gallery{
@@ -531,6 +537,9 @@ thead tr:nth-child(3) th {
     .text-perle-bleue{
         font-size: 18px;
         text-align: center;
+        width: 100%;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, 0.60);
     }
     .container_reservation_form{
         width: 100%;
@@ -554,15 +563,9 @@ thead tr:nth-child(3) th {
         font-size: 15px;
         text-align: center;
     }
-
-    #modal{
-        width: 85vw;
-        left: 10vw;
-    }
     .container_info{
         padding: 2em;
     }
-
     /*** Menu ***/
     .container_info>div{
         flex-direction: column;
@@ -587,6 +590,12 @@ thead tr:nth-child(3) th {
     }
 }
 @media (max-width: 550px){
+    #logo{
+        height: 20em;
+    }
+    .police_logo{
+        font-size: 20px;
+    }
     #modal{
         width: 95vw;
         left: 0vw;

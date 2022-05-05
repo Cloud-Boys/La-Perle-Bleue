@@ -7,7 +7,6 @@
     <!-- Include Bootstrap CDN -->
     <link rel="stylesheet" href="{{ asset('css/timepicker.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
     
 {% endblock %}
@@ -147,7 +146,7 @@
                     <div class="container_menu wrapper">
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
-                            <h2 class="police_italien white"><Strong>Notre Menu</Strong></h2>
+                            <h2 class="police_italien white">Notre <Strong>Menu</Strong></h2>
                             {% for text in textes %}
                                 {% if text.nom == 'texteMenu' %}
                                     <p class="text_menu">{{text.texte}}</p>
@@ -203,7 +202,7 @@
                 <div id="modal">
                     <div id="modal-actions">
                         <h2>Nos <Strong>Horaires d'ouverture</Strong></h2>
-                        <a id="modal-actions__cancel" class="close_horaire" href="#reservation"></a>
+                        <a id="modal-actions__cancel" class="close_horaire"></a>
                     </div>
                     <table class="horaire_table" cellspacing="0" cellpadding="0">
                         <tr>

@@ -25,12 +25,8 @@ body{
 .section_bg_img{
     background-size: cover;
     height: 15em;
-    margin-top: 5em;
+    margin-top: 10em;
 }
-
-
-
-
 
 
 
@@ -135,11 +131,14 @@ textarea.form-control {
     margin-bottom: 20px;
 }
 .dbox .icon span {
-    font-size: 20px;
+    font-size: 25px;
     color: white;
 }
 .dbox .text {
     width: 100%;
+}
+.text a:hover{
+    color: #186611;
 }
 .btn {
     padding: 12px 16px;
