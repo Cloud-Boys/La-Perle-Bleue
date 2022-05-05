@@ -300,23 +300,3 @@ i.fa-envelope{
 	}
 
 }
-<<<<<<< HEAD
-
-/**************** Global CSS **************/
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
-}
-textarea {
-    resize: none;
-}
-
-ul {
-    list-style:none;
-}
-
-strong{
-    font-weight: 500;
-}
-=======
->>>>>>> daf01ea46065ef62a43732b93f9315121e1aecbe

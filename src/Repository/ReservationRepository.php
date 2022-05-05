@@ -47,4 +47,15 @@ class ReservationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function deleteReservation($today) 
+    {
+        $this->createQueryBuilder('r')
+                    ->delete() 
+                    ->Where(':today >= r.createdAt')
+                    ->setParameter('today', $today)
+                    ->getQuery()
+                    ->execute()
+        ;
+    }
 }
