@@ -1,0 +1,83 @@
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault  "access 1 month"
+
+    ExpiresByType text/html "access 1 month"    
+
+    # CSS
+    ExpiresByType text/css "access 1 year"
+    ExpiresByType application/javascript "access 1 year"
+    ExpiresByType application/x-javascript "access 1 year"
+    ExpiresByType text/javascript "access 1 year"
+
+    # Data interchange
+    ExpiresByType application/atom+xml "access 1 hour"
+    ExpiresByType application/rdf+xml "access 1 hour"
+    ExpiresByType application/rss+xml "access 1 hour"
+
+    ExpiresByType application/json "access 0 seconds"
+    ExpiresByType application/ld+json "access 0 seconds"
+    ExpiresByType application/schema+json "access 0 seconds"
+    ExpiresByType application/vnd.geo+json "access 0 seconds"
+    ExpiresByType application/xml "access 0 seconds"
+    ExpiresByType text/xml "access 0 seconds"           
+    
+    ExpiresByType application/manifest+json "access 1 week"
+    ExpiresByType application/x-web-app-manifest+json "access 0 seconds"
+    ExpiresByType text/cache-manifest "access 0 seconds"
+
+    # Favicon and cursor images
+    ExpiresByType image/vnd.microsoft.icon "access 1 year"
+    ExpiresByType image/x-icon "access 1 year"
+
+    # Media files
+    ExpiresByType audio/ogg "access 1 year"
+    ExpiresByType image/bmp "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/svg+xml "access 1 year"
+    ExpiresByType image/webp "access 1 year"
+    ExpiresByType video/mp4 "access 1 year"
+    ExpiresByType video/ogg "access 6 months"
+    ExpiresByType video/webm "access 6 months"
+</IfModule>
+## EXPIRES CACHING ##
+
+<IfModule mod_headers.c>
+    #Header set Strict-Transport-Security "max-age=\"157680000\"; includeSubDomains; preload" env=HTTPS
+    Header set Strict-Transport-Security "max-age=10886400; includeSubDomains; preload"
+    Header set Content-Security-Policy "block-all-mixed-content"
+	Header set X-XSS-Protection "1; mode=block"
+	Header always append X-Frame-Options SAMEORIGIN
+	Header set X-Content-Type-Options nosniff
+    Header always set Referrer-Policy "strict-origin-when-cross-origin" 
+    #Header set Feature-Policy "accelerometer 'none'; autoplay 'self'; camera 'none'; encrypted-media 'self'; fullscreen 'self'; geolocation 'self'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'self'; picture-in-picture 'self'; sync-xhr 'self'; usb 'none';"
+    #Header set Permissions-Policy "accelerometer=Origin(), geolocation=*, autoplay=(), camera=(), gyroscope=(), fullscreen=(self https://%{HTTP_HOST}), magnetometer=(), ambient-light-sensor=(), microphone=(), battery=(), payment=(), publickey-credentials-get=('self'), usb=(), display-capture=('self')"
+    Header set Permissions-Policy "fullscreen=(self), geolocation=*, camera=(), microphone=(), gyroscope=(), payment=()"
+    #Header set Permissions-Policy "accelerometer=(), geolocation=*, fullscreen=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=('self')"
+    Header always unset X-Powered-By
+    Header always unset server
+    Header unset X-Powered-By
+    Header unset server
+    <FilesMatch ".(js|css|xml|gz)$">
+        Header append Vary: Accept-Encoding
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=172800, public, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+
+# This will prevent generating "Not Found" error in browser
+# Then we will manually do the rest to produce page for user
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L] 
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>

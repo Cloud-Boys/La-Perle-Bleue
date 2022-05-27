@@ -35,7 +35,7 @@ class AccueilEcritRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    
     /*
     public function findOneBySomeField($value): ?AccueilEcrit
     {

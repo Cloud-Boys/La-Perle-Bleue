@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Menu;
 use App\Entity\Categorie;
-use App\Entity\AccueilEcrit;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,14 +24,10 @@ class MenuController extends AbstractController
         $categories = $doctrine
                 ->getRepository(Categorie::class)
                 ->findAll();
-        $textes = $doctrine
-                ->getRepository(AccueilEcrit::class)
-                ->findAll();
 
         return $this->render('menu/index.html.twig', [
             'menus' => $menus,
-            'categories' => $categories,
-            'textes' => $textes,
+            'categories' => $categories
         ]);
 
     }

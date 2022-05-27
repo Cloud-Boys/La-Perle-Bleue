@@ -50,14 +50,14 @@ class ReservationType extends AbstractType
             ])
             ->add('telephone',TextType::class, [
                 'attr' => [
-                    'placeholder' => "Numéro de téléphone",
+                    'placeholder' => "Téléphone",
                     'class' => 'reserv_inputs'
                 ]
             ])
             ->add('nb_adulte', IntegerType::class, [
                 'attr' => [
                     'placeholder' => "Nombre d'adulte",
-                    'class' => 'reserv_inputs',
+                    'class' => 'reserv_inputs nb_personne',
                     'min' => '1',
                     'max' => '90',
                     'empty_data' => '1'
@@ -68,7 +68,7 @@ class ReservationType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => "Nombre d'enfant",
-                    'class' => 'reserv_inputs',
+                    'class' => 'reserv_inputs nb_personne',
                     'min' => '0',
                     'max' => '30',
                 ]
@@ -77,7 +77,7 @@ class ReservationType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => "Nombre de bébe",
-                    'class' => 'reserv_inputs',
+                    'class' => 'reserv_inputs nb_personne',
                     'min' => '0',
                     'max' => '30',
                     'empty_data' => '0'

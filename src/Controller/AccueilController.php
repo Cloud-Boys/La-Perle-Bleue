@@ -40,11 +40,6 @@ class AccueilController extends AbstractController
 
         
         $menus = $repo_menu->findRandProducts();
-
-
-        $textes = $doctrine
-                    ->getRepository(AccueilEcrit::class)
-                    ->findAll();
  
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
@@ -54,13 +49,9 @@ class AccueilController extends AbstractController
             'fermetures' => $fermetures,
             'menu_images' => $menu_images,
             'gallery_images' => $gallery_images,
-            'menus' => $menus,
-            'textes' => $textes
+            'menus' => $menus
         ]);
 
-        return $this->render('base.html.twig', [
-            'textes' => $textes
-        ]);
     }
 
 

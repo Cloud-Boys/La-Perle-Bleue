@@ -176,6 +176,9 @@ padding-bottom: 12px;
     color: white;
     font-size: 13px;
 }
+.reservation_form textarea{
+    height: 100% !important;
+}
 .reservation_form .reserv_inputs::placeholder {
     color: white;
     font-size: 15px;
@@ -207,12 +210,16 @@ padding-bottom: 12px;
 
 /*********** DATE PICKER ****************/
 
+.datepicker{
+    padding: 0;
+}
+
 .input-group {
     border-radius: 5px;
 }
 
 input.form-control {
-    border-radius: 5px 0 0 5px;
+    border-radius: 0;
     border: solid 1px rgba(0,0,0,.15);
     border-right: none;
 }
@@ -603,6 +610,19 @@ thead tr:nth-child(3) th {
     .container_info{
         padding: 1em;
     }
+    /**** Form *****/
+    .container_reservation_form{
+        padding: 1em;
+    }
+    .reservation_form .nb_personne::placeholder {
+        font-size: 10px;
+        font-weight: bold;
+        
+    }
+
+    .reservation_form .container_input .icon i{
+        font-size: 15px;
+    }
     /*** Menu ***/
     #right_side_menu{
         grid-template-columns: repeat(1, 1fr);
@@ -630,4 +650,14 @@ thead tr:nth-child(3) th {
 
 
 
+
+/****** 404 page *****/ 
+
+.oops{
+    background-color: rgba(0,28,24,0.95);
+    padding: 2em;
+    text-align: center;
+    border-radius: 80%;
+    font-size: 25px;
+}
 

@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
-use App\Entity\AccueilEcrit;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -18,12 +16,8 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(ManagerRegistry $doctrine,Request $request, MailerInterface $mailer): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
-
-        $textes = $doctrine
-                    ->getRepository(AccueilEcrit::class)
-                    ->findAll();
 
 
         $contact = new Contact();
@@ -50,8 +44,7 @@ class ContactController extends AbstractController
 
 
         return $this->render('contact/index.html.twig', [
-            'formContact' => $form->createView(),
-            'textes' => $textes
+            'formContact' => $form->createView()
         ]);
     }
 }

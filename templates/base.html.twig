@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}La Perle Bleue{% endblock %}</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />            <!-- Include Bootstrap DateTimePicker CDN -->
         <!-- CSS only -->
         <link rel="icon" href="data:,">
@@ -70,7 +70,7 @@
 
                 <div>
                     <i class="fa fa-phone"></i>
-                    {% for text in textes %}
+                    {% for text in textes.getText %}
                         {% if text.nom == 'telephone' %}
                             <p>{{text.texte}}</p>
                         {% endif %}
@@ -80,7 +80,7 @@
 
                 <div>
                     <i class="fa fa-envelope"></i>
-                    {% for text in textes %}
+                    {% for text in textes.getText %}
                         {% if text.nom == 'email' %}
                             <p>{{text.texte}}</p>
                         {% endif %}
@@ -93,7 +93,7 @@
 
                 <p class="footer-company-about">
                     <span>À propos</span>
-                    {% for text in textes %}
+                    {% for text in textes.getText %}
                         {% if text.nom == 'A_propos' %}
                             {{text.texte}}
                         {% endif %}

@@ -52,7 +52,7 @@
                                 <div class="container_info">
                                     <div class="flex wrap white">  
                                         <div class="info f-1">
-                                            {% for text in textes %}
+                                            {% for text in textes.getText %}
                                                 {% if text.nom == 'telephone' %}
                                                     <h3 class="fs-18"><i class="fas fa-phone-alt mr-1 vert"></i><Strong>{{text.texte}}</Strong></h3>
                                                 {% endif %}
@@ -147,7 +147,7 @@
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
                             <h2 class="police_italien white">Notre <Strong>Menu</Strong></h2>
-                            {% for text in textes %}
+                            {% for text in textes.getText %}
                                 {% if text.nom == 'texteMenu' %}
                                     <p class="text_menu">{{text.texte}}</p>
                                 {% endif %}
