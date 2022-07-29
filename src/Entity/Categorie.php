@@ -25,7 +25,7 @@ class Categorie
     private $nom;
 
     /**
-     * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="Categorie")
+     * @ORM\OneToMany(targetEntity=Menu::class, mappedBy="categorie", cascade={"remove"})
      */
     private $menus;
 

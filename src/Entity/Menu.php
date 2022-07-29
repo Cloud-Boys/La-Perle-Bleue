@@ -42,7 +42,7 @@ class Menu
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="menus")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $categorie;
 
@@ -78,7 +78,7 @@ class Menu
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
