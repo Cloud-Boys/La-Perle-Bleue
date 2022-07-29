@@ -22,7 +22,7 @@ class MenuCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        $imageFichier = TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class)->setFormTypeOption('allow_delete', false);  
+        $imageFichier = TextareaField::new('imageFichier', 'Image')->setFormType(VichImageType::class);  
 
         $Association = AssociationField::new('categorie', 'Catégorie');
 
@@ -36,8 +36,6 @@ class MenuCrudController extends AbstractCrudController
 
         $fields = [
             TextField::new('nom'),
-            TextField::new('prix'),
-            TextField::new('description'),
         ];
 
         if($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {

@@ -26,7 +26,7 @@ class Menu
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -39,16 +39,6 @@ class Menu
      * @ORM\Column(type="datetime") 
      */
     private $updatedAt;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $prix;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="menus")

@@ -36,7 +36,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Alerte', 'fa fa-file-pdf', Alerte::class);
         yield MenuItem::section("Page d'accueil");
         yield MenuItem::linkToCrud("Texte page d'accueil", 'fa fa-file-pdf', AccueilEcrit::class);
-        yield MenuItem::linkToCrud("Image page d'accueil", 'fa fa-file-pdf', AccueilImage::class);
         yield MenuItem::linkToRoute('Accueil', 'fa fa-file-pdf', 'accueil');
         yield MenuItem::section("Menu");
         yield MenuItem::linkToCrud('Catégorie', 'fa fa-file-pdf', Categorie::class);

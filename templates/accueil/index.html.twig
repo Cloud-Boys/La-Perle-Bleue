@@ -45,8 +45,8 @@
                         <div class="reservation_flex">
                             <div class="left_side_reservation">
                                 <div>
-                                    <p class="text-perle-bleue">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dignissimos reprehenderit dolore blanditiis. eligendi magnam odio voluptate molestias earum laudantium culpa consequatur porro provident.
+                                    <p class="text-perle-bleue police_description">
+                                        A votre service depuis 1998, un concept unique à Strasbourg, venez découvrir La Perle Bleue. Un décor raffiné et chic, une ambiance branchée et tendance au service d'une cuisine savoureuse faite maison. Un restaurant à la carte variée rassemblant steakhouse, pizzeria, burger, pâtes ou cocktail, le tout à base de produits frais ! L'établissement parfait pour vous retrouver entre amis, famille ou collègues.
                                     </p>
                                 </div>
                                 <div class="container_info">
@@ -146,12 +146,8 @@
                     <div class="container_menu wrapper">
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
-                            <h2 class="police_italien white">Notre <Strong>Menu</Strong></h2>
-                            {% for text in textes %}
-                                {% if text.nom == 'texteMenu' %}
-                                    <p class="text_menu">{{text.texte}}</p>
-                                {% endif %}
-                            {% endfor %}
+                            <h2 class="police_italien white mt-5">Nos <Strong>Services</Strong></h2>
+                                    <p class="text_menu police_description orange">Vous aurez également la possibilité de vous retrouver en tout intimité en privatisant une salle pouvant accueillir une cinquantaine de personnes pour votre simple plaisir ou événement particulier (anniversaire, mariage, fiançailles, baptêmes, réunions professionnelles). En salle climatisée ou en terrasse, profitez de nos spécialités de viande élaborées par nos chefs et terminez votre expérience culinaire par l'un de nos savoureux cocktails ou desserts préparé minute ! 100% Halal, une expérience à partager sans attendre!</p>
                             <a class="button_menu" href="menu">Voir le <Strong>menu</Strong></a>
                         </div>
                         <!-- Coté droit de la boxe Menu avec les images-->
@@ -189,9 +185,7 @@
                                 {% for menu in menus %}                               
                                     <div class="div_product">
                                         <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="{{menu.nom}}">
-                                        <h3><Strong>{{menu.nom}}</Strong></h3>
-                                        <p class="product_descrip">{{menu.description}}</p>
-                                        <p class="prix">{{menu.prix}} €</p>
+                                        <h3><Strong class="police_description_gras">{{menu.nom}}</Strong></h3>
                                     </div>                         
                                 {% endfor %}
                             </div>
@@ -227,11 +221,11 @@
                         </tr>
                         <tr>
                             <th>Samedi</th>
-                            <td>10h30 - 23h30</td>
+                            <td>12h00 - 23h30</td>
                         </tr>
                         <tr>
                             <th>Dimanche</th>
-                            <td>10h30 - 22h30</td>
+                            <td>12h00 - 22h30</td>
                         </tr>
                     </table>
                 </div>

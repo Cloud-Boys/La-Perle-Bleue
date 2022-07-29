@@ -22,12 +22,12 @@
 
                         {% if cat.id == 1 %}
 
-                            <div class="onglet active" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
+                            <div class="onglet active police_description_gras" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
                             </div>
                         
                         {% else %}
                         
-                            <div class="onglet" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
+                            <div class="onglet police_description_gras" data-num="{{ cat.id }}"><p class="m-0"><Strong>{{cat.nom}}</Strong></p>
                             </div>
 
                         {% endif %}
@@ -42,11 +42,11 @@
 
                    {% if cat.id == 1 %}
 
-                            <div class="products_container visible" data-num="{{ cat.id  }}">
+                            <div class="products_container  police_description_gras visible" data-num="{{ cat.id  }}">
 
                         {% else %}
 
-                            <div class="products_container" data-num="{{ cat.id  }}">
+                            <div class="products_container  police_description_gras" data-num="{{ cat.id  }}">
 
                         {% endif %}
 
@@ -55,9 +55,7 @@
                      
                                     <div class="div_product">
                                         <img class="img_product" src="{{ asset('img/Upload/' ~  menu.image ~ '') }}" alt="{{menu.nom}}">
-                                        <h3><Strong>{{menu.nom}}</Strong></h3>
-                                        <p class="product_descrip"><Strong>{{menu.description}}</Strong></p>
-                                        <p class="prix"><Strong>{{menu.prix}} €</Strong></p>
+                                        <h3><Strong class="police_description">{{menu.nom}}</Strong></h3>
                                     </div>
                         {% endif %}
 
