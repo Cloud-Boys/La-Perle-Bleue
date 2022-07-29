@@ -147,17 +147,24 @@
                         <!-- Coté gauche de la boxe Menu avec le texte et le logo-->
                         <div id="left_side_menu">
                             <h2 class="police_italien white mt-5">Nos <Strong>Services</Strong></h2>
-                                    <p class="text_menu police_description orange">Vous aurez également la possibilité de vous retrouver en tout intimité en privatisant une salle pouvant accueillir une cinquantaine de personnes pour votre simple plaisir ou événement particulier (anniversaire, mariage, fiançailles, baptêmes, réunions professionnelles). En salle climatisée ou en terrasse, profitez de nos spécialités de viande élaborées par nos chefs et terminez votre expérience culinaire par l'un de nos savoureux cocktails ou desserts préparé minute ! 100% Halal, une expérience à partager sans attendre!</p>
+                                    <p class="text_menu police_description">Vous aurez également la possibilité de vous retrouver en tout intimité en privatisant une salle pouvant accueillir une cinquantaine de personnes pour votre simple plaisir ou événement particulier (anniversaire, mariage, fiançailles, baptêmes, réunions professionnelles). En salle climatisée ou en terrasse, profitez de nos spécialités de viande élaborées par nos chefs et terminez votre expérience culinaire par l'un de nos savoureux cocktails ou desserts préparé minute ! 100% Halal, une expérience à partager sans attendre!</p>
                             <a class="button_menu" href="menu">Voir le <Strong>menu</Strong></a>
                         </div>
                         <!-- Coté droit de la boxe Menu avec les images-->
                         <div id="right_side_menu" class="f-1">
                             <!-- Les images du Menu -->
-                            {% for img in menu_images %}
                                 <div class="p">
-                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="Menu perle bleue plat">
+                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/') }}" alt="Menu perle bleue plat">
                                 </div>
-                            {% endfor %}
+                                <div class="p">
+                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/') }}" alt="Menu perle bleue plat">
+                                </div>
+                                <div class="p">
+                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/') }}" alt="Menu perle bleue plat">
+                                </div>
+                                <div class="p">
+                                    <img class="img_menu_gallery" src="{{ asset('img/Upload/') }}" alt="Menu perle bleue plat">
+                                </div>
                         </div>
                     </div>
                 </section>
@@ -166,11 +173,18 @@
                 <!-- Debut Section Gallery-->
                 <section class="section_gallery">
                     <div class="div_gallery">
-                        {% for img in gallery_images %}
                             <div>
-                                <img class="img_gallery" src="{{ asset('img/Upload/' ~  img.image ~ '') }}" alt="gallery perle bleue restaurant">
+                                <img class="img_gallery" src="{{ asset('img/Upload/') }}" alt="gallery perle bleue restaurant">
                             </div>
-                        {% endfor %}
+                            <div>
+                                <img class="img_gallery" src="{{ asset('img/Upload/') }}" alt="gallery perle bleue restaurant">
+                            </div>
+                            <div>
+                                <img class="img_gallery" src="{{ asset('img/Upload/') }}" alt="gallery perle bleue restaurant">
+                            </div>
+                            <div>
+                                <img class="img_gallery" src="{{ asset('img/Upload/') }}" alt="gallery perle bleue restaurant">
+                            </div>
                     </div>
                 </section>
                 <!-- Fin Section Gallery-->
@@ -248,4 +262,3 @@
         
     {% endblock %}
 {% endblock %}
-

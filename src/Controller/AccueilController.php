@@ -7,7 +7,6 @@ use App\Entity\Categorie;
 use App\Entity\Fermeture;
 use App\Entity\Reservation;
 use App\Entity\AccueilEcrit;
-use App\Entity\AccueilImage;
 use App\Form\ReservationType;
 use App\Repository\MenuRepository;
 use App\Repository\AlerteRepository;
@@ -30,14 +29,6 @@ class AccueilController extends AbstractController
     {
         $fermetures = $repo_ferm->findMinDate();
 
-
-        $menu_images= $doctrine
-                    ->getRepository(AccueilImage::class)
-                    ->findBy(["nom" => "menu_image"]);
-        $gallery_images = $doctrine
-                    ->getRepository(AccueilImage::class)
-                    ->findBy(["nom" => "gallery_intérieur"]);
-
         
         $menus = $repo_menu->findRandProducts();
 
@@ -52,8 +43,6 @@ class AccueilController extends AbstractController
         return $this->render('accueil/index.html.twig', [
             'formReservation' => $form->createView(),
             'fermetures' => $fermetures,
-            'menu_images' => $menu_images,
-            'gallery_images' => $gallery_images,
             'menus' => $menus,
             'textes' => $textes
         ]);
